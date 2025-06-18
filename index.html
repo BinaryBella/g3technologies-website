@@ -878,7 +878,7 @@
 
         .nav-arrow:active {
             background: #f95818;
-;
+            ;
         }
 
         /* Responsive Design */
@@ -1929,6 +1929,7 @@
         }
 
         /* mobile responsiveness */
+
         /* Mobile Navigation Drawer */
         .mobile-menu-toggle {
             display: none;
@@ -2752,210 +2753,157 @@
             width: 100%;
         }
 
-        .testimonial-section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .testimonial-container {
+        .testimonial-slider {
             position: relative;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            padding: 50px 40px;
-            margin-bottom: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+            height: 300px;
             overflow: hidden;
-            animation: slideUp 1s ease-out 0.6s both;
         }
 
-        .testimonial-container::before {
-            content: '';
+        .testimonial-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card::before {
+            content: '"';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #f9ae18 0%, #ed1d25 100%);
-        }
-
-        .testimonial {
-            display: none;
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        .testimonial.active {
-            display: block;
-        }
-
-        .quote-icon {
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 4rem;
             color: #f9ae18;
-            margin-bottom: 20px;
+            font-family: Georgia, serif;
             opacity: 0.3;
+            margin-bottom: 20px;
         }
 
         .testimonial-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
             color: #000000;
+            font-size: 1.2rem;
+            line-height: 1.8;
             margin-bottom: 30px;
             font-style: italic;
+            max-width: 600px;
             position: relative;
+            z-index: 1;
+            margin-top: 20px;
         }
 
         .testimonial-author {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            gap: 20px;
+            gap: 5px;
         }
 
-        .author-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #f9ae18, #ed1d25);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            font-size: 1.8rem;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .author-name {
+            color: #f9ae18;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
-        .author-info h4 {
-            color: #000000;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: #666;
+        .author-position {
+            color: #7e7e7e;
             font-size: 0.9rem;
+            opacity: 0.8;
         }
 
-        .testimonial-nav {
+        .author-company {
+            color: #050505;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .testimonial-indicators {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-top: 40px;
+            margin-bottom: 90px;
         }
 
-        .nav-dot {
-            width: 15px;
-            height: 15px;
+        .indicator {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
+            background: rgba(146, 146, 146, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .indicator.active {
             background: #f9ae18;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .nav-dot.active {
-            background: #ed1d25;
             transform: scale(1.2);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
-        .nav-dot:hover {
-            background: #ffffff;
-            transform: scale(1.1);
+        .indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
         }
 
-        .nav-arrows {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .nav-arrow {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: #ffffff;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-arrow:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        .indicator.active::after {
+            left: 100%;
         }
 
         @media (max-width: 768px) {
-            .section-title {
-                font-size: 2.2rem;
+            .testimonial-section {
+                padding: 60px 15px;
             }
 
-            .testimonial-container {
-                padding: 30px 25px;
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .testimonial-slider {
+                height: 350px;
+            }
+
+            .testimonial-card {
+                padding: 30px 20px;
             }
 
             .testimonial-text {
                 font-size: 1.1rem;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem;
             }
 
-            .author-avatar {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
+            .testimonial-slider {
+                height: 400px;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
             }
         }
 
@@ -3365,90 +3313,75 @@
         <h2 class="section-title">What Our Clients Say</h2>
         <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers</p>
 
-        <div class="testimonial-container">
-            <div class="quote-icon">"</div>
+        <div class="testimonial-slider">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            G3 Technologies transformed our entire digital infrastructure. Their innovative solutions and dedicated support team exceeded all our expectations. 
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Sarah Mitchell</div>
+                            <div class="author-position">Chief Technology Officer</div>
+                            <div class="author-company">TechCorp Solutions</div>
+                        </div>
+                    </div>
 
-            <div class="testimonial active">
-                <p class="testimonial-text">
-                    "Working with this team has been absolutely transformative for our business. Their attention to
-                    detail and innovative approach exceeded all our expectations. We saw a 300% increase in engagement
-                    within the first month!"
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">SM</div>
-                    <div class="author-info">
-                        <h4>Sarah Mitchell</h4>
-                        <p>CEO, TechFlow Solutions</p>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Working with G3 Technologies has been a game-changer for our business. Delivering quality solutions on time made our digital transformation seamless and successful.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Michael Rodriguez</div>
+                            <div class="author-position">Director of Operations</div>
+                            <div class="author-company">Innovation Dynamics</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            The level of professionalism and technical prowess that G3 Technologies brings to every project is outstanding. They don't just deliver solutions; they deliver results that drive real business growth.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Emily Chen</div>
+                            <div class="author-position">VP of Digital Strategy</div>
+                            <div class="author-company">Global Enterprises Ltd</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            G3 Technologies stands out in the crowded tech services market. Their ability to understand complex business requirements and translate them into elegant technical solutions is truly impressive.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">David Thompson</div>
+                            <div class="author-position">Managing Director</div>
+                            <div class="author-company">Strategic Solutions Inc</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            From consultation to implementation, G3 Technologies provided exceptional service. Their team's expertise and attention to detail helped us achieve our digital goals faster than we thought possible.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-name">Lisa Park</div>
+                            <div class="author-position">Head of IT</div>
+                            <div class="author-company">NextGen Analytics</div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "The level of professionalism and creativity they brought to our project was outstanding. They
-                    didn't just deliver what we asked for - they delivered what we needed, even before we knew we needed
-                    it."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">JD</div>
-                    <div class="author-info">
-                        <h4>James Davidson</h4>
-                        <p>Marketing Director, Innovate Labs</p>
-                    </div>
-                </div>
+            <div class="testimonial-indicators" id="indicators">
+                <div class="indicator active" data-slide="0"></div>
+                <div class="indicator" data-slide="1"></div>
+                <div class="indicator" data-slide="2"></div>
+                <div class="indicator" data-slide="3"></div>
+                <div class="indicator" data-slide="4"></div>
             </div>
-
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "From concept to execution, every step of the process was seamless. Their team's expertise and
-                    dedication made what seemed impossible become not just possible, but extraordinary."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">ER</div>
-                    <div class="author-info">
-                        <h4>Emily Rodriguez</h4>
-                        <p>Founder, Creative Ventures</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "I've worked with many agencies over the years, but none have matched their combination of strategic
-                    thinking and flawless execution. They're not just service providers - they're true partners."
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MK</div>
-                    <div class="author-info">
-                        <h4>Michael Kim</h4>
-                        <p>VP Operations, Global Dynamics</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial">
-                <p class="testimonial-text">
-                    "The results speak for themselves. Our conversion rates doubled, our customer satisfaction soared,
-                    and our brand presence has never been stronger. Simply phenomenal work!"
-                </p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">AL</div>
-                    <div class="author-info">
-                        <h4>Amanda Liu</h4>
-                        <p>Brand Manager, NextGen Digital</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="testimonial-nav">
-            <div class="nav-dot active" data-slide="0"></div>
-            <div class="nav-dot" data-slide="1"></div>
-            <div class="nav-dot" data-slide="2"></div>
-            <div class="nav-dot" data-slide="3"></div>
-            <div class="nav-dot" data-slide="4"></div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact">
@@ -3607,693 +3540,692 @@
                 </div>
             </div>
         </div>
+    </section>
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <span class="back-to-top-icon">↑</span>
+    </button>
 
-        <!-- Back to Top Button -->
-        <button class="back-to-top" id="backToTop" aria-label="Back to top">
-            <span class="back-to-top-icon">↑</span>
-        </button>
-
-        <div class="footer-bottom">
-            <div class="footer-logo">
-                <img src="images/logo2.png">
-            </div>
-            <div class="copyright">
-                © 2025 <span>G3 Technologies Pvt Ltd</span>. All rights reserved. |
-                Privacy Policy | Terms of Service | Cookie Policy
-            </div>
+    <div class="footer-bottom">
+        <div class="footer-logo">
+            <img src="images/logo2.png">
         </div>
+        <div class="copyright">
+            © 2025 <span>G3 Technologies Pvt Ltd</span>. All rights reserved. |
+            Privacy Policy | Terms of Service | Cookie Policy
+        </div>
+    </div>
 
-        <script>
-            // Loading Animation
-            window.addEventListener('load', () => {
-                // Simulate login/loading process
-                setTimeout(() => {
-                    const loadingOverlay = document.getElementById('loadingOverlay');
-                    if (loadingOverlay) {
-                        loadingOverlay.classList.add('hidden');
-                        // Remove the loading overlay from DOM after transition
-                        setTimeout(() => {
-                            loadingOverlay.remove();
-                        }, 500);
-                    }
-                }, 1000); // 3 seconds loading time - adjust as needed
+    <script>
+        // Loading Animation
+        window.addEventListener('load', () => {
+            // Simulate login/loading process
+            setTimeout(() => {
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                    // Remove the loading overlay from DOM after transition
+                    setTimeout(() => {
+                        loadingOverlay.remove();
+                    }, 500);
+                }
+            }, 1000); // 3 seconds loading time - adjust as needed
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.style.animationDelay = `${index * 0.1}s`;
+                        entry.target.classList.add('animate-in');
+                    }, index * 100);
+                }
             });
+        }, observerOptions);
 
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.style.animationDelay = `${index * 0.1}s`;
-                            entry.target.classList.add('animate-in');
-                        }, index * 100);
-                    }
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            if (projectCards.length > 0) {
+                projectCards.forEach((card) => {
+                    observer.observe(card);
                 });
-            }, observerOptions);
+            }
+        });
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const projectCards = document.querySelectorAll('.project-card');
-                if (projectCards.length > 0) {
-                    projectCards.forEach((card) => {
-                        observer.observe(card);
-                    });
-                }
-            });
-
-            // Add hover sound effect simulation
-            document.addEventListener('DOMContentLoaded', () => {
-                const projectCards = document.querySelectorAll('.project-card');
-                projectCards.forEach(card => {
-                    card.addEventListener('mouseenter', () => {
-                        card.style.transform = 'translateY(-10px) scale(1.02)';
-                    });
-
-                    card.addEventListener('mouseleave', () => {
-                        card.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
-            });
-
-            // Optional: Add click handler to manually hide loading (for testing)
-            document.addEventListener('click', (e) => {
-                if (e.target.closest('.loading-overlay')) {
-                    const loadingOverlay = document.getElementById('loadingOverlay');
-                    if (loadingOverlay) {
-                        loadingOverlay.classList.add('hidden');
-                        setTimeout(() => {
-                            loadingOverlay.remove();
-                        }, 500);
-                    }
-                }
-            });
-
-            // Back to Top Button Functionality
-            document.addEventListener('DOMContentLoaded', () => {
-                const backToTopButton = document.getElementById('backToTop');
-                if (backToTopButton) {
-                    // Show/hide button based on scroll position
-                    const toggleBackToTopButton = () => {
-                        if (window.scrollY > 300) {
-                            backToTopButton.classList.add('visible');
-                        } else {
-                            backToTopButton.classList.remove('visible');
-                        }
-                    };
-
-                    // Smooth scroll to top
-                    const scrollToTop = () => {
-                        window.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    };
-
-                    // Event listeners for back to top
-                    window.addEventListener('scroll', toggleBackToTopButton);
-                    backToTopButton.addEventListener('click', scrollToTop);
-
-                    // Initialize back to top button state
-                    toggleBackToTopButton();
-                }
-            });
-
-            // Contact Form Handler
-            // Contact Form Handler with Enhanced Validation
-            document.addEventListener('DOMContentLoaded', () => {
-                const contactForm = document.getElementById('contactForm');
-                const nameInput = document.getElementById('name');
-                const emailInput = document.getElementById('email');
-                const messageInput = document.getElementById('message');
-                const cancelBtn = document.getElementById('cancelBtn');
-
-                // Email validation regex
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                // Only clear validation on input AFTER form has been submitted once
-                let formSubmitted = false;
-                [nameInput, emailInput, messageInput].forEach(input => {
-                    input.addEventListener('input', () => {
-                        if (formSubmitted) {
-                            clearFieldError(input);
-                        }
-                    });
+        // Add hover sound effect simulation
+        document.addEventListener('DOMContentLoaded', () => {
+            const projectCards = document.querySelectorAll('.project-card');
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-10px) scale(1.02)';
                 });
 
-                // Cancel button functionality
-                cancelBtn.addEventListener('click', () => {
-                    resetContactForm();
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) scale(1)';
                 });
+            });
+        });
 
-                // Form submission handler
-                contactForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
+        // Optional: Add click handler to manually hide loading (for testing)
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.loading-overlay')) {
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                if (loadingOverlay) {
+                    loadingOverlay.classList.add('hidden');
+                    setTimeout(() => {
+                        loadingOverlay.remove();
+                    }, 500);
+                }
+            }
+        });
 
-                    // Mark that form has been submitted
-                    formSubmitted = true;
-
-                    // Reset all previous errors
-                    clearAllErrors();
-
-                    let isValid = true;
-
-                    // Validate name
-                    if (!nameInput.value.trim()) {
-                        showFieldError(nameInput, 'nameError', 'Please enter your full name.');
-                        isValid = false;
+        // Back to Top Button Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTopButton = document.getElementById('backToTop');
+            if (backToTopButton) {
+                // Show/hide button based on scroll position
+                const toggleBackToTopButton = () => {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
                     }
+                };
 
-                    // Validate email
-                    if (!emailInput.value.trim()) {
-                        showFieldError(emailInput, 'emailError', 'Please enter your email address.');
-                        isValid = false;
-                    } else if (!emailRegex.test(emailInput.value.trim())) {
-                        showFieldError(emailInput, 'emailError', 'Please enter a valid email address.');
-                        isValid = false;
-                    }
+                // Smooth scroll to top
+                const scrollToTop = () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                };
 
-                    // Validate message
-                    if (!messageInput.value.trim()) {
-                        showFieldError(messageInput, 'messageError', 'Please enter your message.');
-                        isValid = false;
-                    }
+                // Event listeners for back to top
+                window.addEventListener('scroll', toggleBackToTopButton);
+                backToTopButton.addEventListener('click', scrollToTop);
 
-                    // If all fields are valid, show success
-                    if (isValid) {
-                        showSuccessModal();
-                        resetContactForm();
+                // Initialize back to top button state
+                toggleBackToTopButton();
+            }
+        });
+
+        // Contact Form Handler with Enhanced Validation
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contactForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const cancelBtn = document.getElementById('cancelBtn');
+
+            // Email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            // Only clear validation on input AFTER form has been submitted once
+            let formSubmitted = false;
+            [nameInput, emailInput, messageInput].forEach(input => {
+                input.addEventListener('input', () => {
+                    if (formSubmitted) {
+                        clearFieldError(input);
                     }
                 });
-
-                function showFieldError(field, errorId, message) {
-                    const formGroup = field.parentElement;
-                    const errorElement = document.getElementById(errorId);
-
-                    formGroup.classList.add('error');
-                    errorElement.textContent = message;
-                    errorElement.classList.add('show');
-
-                    // Focus the first invalid field
-                    if (!document.querySelector('.form-group.error input:focus, .form-group.error textarea:focus')) {
-                        field.focus();
-                    }
-                }
-
-                function clearFieldError(field) {
-                    const formGroup = field.parentElement;
-                    const errorElement = formGroup.querySelector('.error-message');
-
-                    formGroup.classList.remove('error');
-                    errorElement.classList.remove('show');
-                }
-
-                function clearAllErrors() {
-                    document.querySelectorAll('.form-group').forEach(group => {
-                        group.classList.remove('error');
-                    });
-                    document.querySelectorAll('.error-message').forEach(error => {
-                        error.classList.remove('show');
-                    });
-                }
-
-                function showSuccessModal() {
-                    document.getElementById('successModal').style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                }
-
-                function resetContactForm() {
-                    contactForm.reset();
-                    clearAllErrors();
-                    formSubmitted = false; // Reset submission flag
-                }
-
-                // Make resetContactForm available globally for the cancel button
-                window.resetContactForm = resetContactForm;
             });
 
-            // Modal close function
-            function closeModal() {
-                document.getElementById('successModal').style.display = 'none';
-                document.body.style.overflow = 'auto';
-                // Clear all form fields and reset validation state
+            // Cancel button functionality
+            cancelBtn.addEventListener('click', () => {
                 resetContactForm();
-            }
+            });
 
-            // Close modal when clicking outside
-            window.addEventListener('click', (e) => {
-                const modal = document.getElementById('successModal');
-                if (e.target === modal) {
-                    closeModal();
+            // Form submission handler
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Mark that form has been submitted
+                formSubmitted = true;
+
+                // Reset all previous errors
+                clearAllErrors();
+
+                let isValid = true;
+
+                // Validate name
+                if (!nameInput.value.trim()) {
+                    showFieldError(nameInput, 'nameError', 'Please enter your full name.');
+                    isValid = false;
+                }
+
+                // Validate email
+                if (!emailInput.value.trim()) {
+                    showFieldError(emailInput, 'emailError', 'Please enter your email address.');
+                    isValid = false;
+                } else if (!emailRegex.test(emailInput.value.trim())) {
+                    showFieldError(emailInput, 'emailError', 'Please enter a valid email address.');
+                    isValid = false;
+                }
+
+                // Validate message
+                if (!messageInput.value.trim()) {
+                    showFieldError(messageInput, 'messageError', 'Please enter your message.');
+                    isValid = false;
+                }
+
+                // If all fields are valid, show success
+                if (isValid) {
+                    showSuccessModal();
+                    resetContactForm();
                 }
             });
 
-            // Add smooth scroll behavior for better UX
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            function showFieldError(field, errorId, message) {
+                const formGroup = field.parentElement;
+                const errorElement = document.getElementById(errorId);
+
+                formGroup.classList.add('error');
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+
+                // Focus the first invalid field
+                if (!document.querySelector('.form-group.error input:focus, .form-group.error textarea:focus')) {
+                    field.focus();
+                }
+            }
+
+            function clearFieldError(field) {
+                const formGroup = field.parentElement;
+                const errorElement = formGroup.querySelector('.error-message');
+
+                formGroup.classList.remove('error');
+                errorElement.classList.remove('show');
+            }
+
+            function clearAllErrors() {
+                document.querySelectorAll('.form-group').forEach(group => {
+                    group.classList.remove('error');
+                });
+                document.querySelectorAll('.error-message').forEach(error => {
+                    error.classList.remove('show');
+                });
+            }
+
+            function showSuccessModal() {
+                document.getElementById('successModal').style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            function resetContactForm() {
+                contactForm.reset();
+                clearAllErrors();
+                formSubmitted = false; // Reset submission flag
+            }
+
+            // Make resetContactForm available globally for the cancel button
+            window.resetContactForm = resetContactForm;
+        });
+
+        // Modal close function
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+            // Clear all form fields and reset validation state
+            resetContactForm();
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('successModal');
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Add smooth scroll behavior for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects for contact methods
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.contact-method').forEach(method => {
+                method.addEventListener('mouseenter', function () {
+                    this.style.borderLeftWidth = '6px';
+                });
+
+                method.addEventListener('mouseleave', function () {
+                    this.style.borderLeftWidth = '4px';
+                });
+            });
+        });
+
+        // Main Hero Carousel (Enhanced with better auto-slide)
+        class HeroCarousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.dots = document.querySelectorAll('.hero-carousel .nav-dot');
+                this.totalSlides = this.slides.length;
+                this.slideInterval = null;
+                this.autoSlideDelay = 2000; // 2 seconds between slides
+
+                if (this.slides.length > 0) {
+                    this.init();
+                }
+            }
+
+            init() {
+                this.showSlide(0); // Show first slide immediately
+                this.startAutoSlide();
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                // Dot navigation
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.goToSlide(index);
+                        this.resetAutoSlide();
+                    });
+                });
+
+                // Pause auto-slide on hover
+                const carouselContainer = document.querySelector('.carousel-container');
+                if (carouselContainer) {
+                    carouselContainer.addEventListener('mouseenter', () => {
+                        this.pauseAutoSlide();
+                    });
+
+                    carouselContainer.addEventListener('mouseleave', () => {
+                        this.startAutoSlide();
+                    });
+                }
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.closest('.hero-carousel')) {
+                        if (e.key === 'ArrowLeft') {
+                            this.prevSlide();
+                            this.resetAutoSlide();
+                        } else if (e.key === 'ArrowRight') {
+                            this.nextSlide();
+                            this.resetAutoSlide();
+                        }
+                    }
+                });
+            }
+
+            showSlide(index) {
+                // Remove active class from all slides and dots
+                this.slides.forEach(slide => slide.classList.remove('active'));
+                this.dots.forEach(dot => dot.classList.remove('active'));
+
+                // Add active class to current slide and dot
+                this.slides[index].classList.add('active');
+                if (this.dots[index]) {
+                    this.dots[index].classList.add('active');
+                }
+            }
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.showSlide(this.currentSlide);
+            }
+
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.showSlide(this.currentSlide);
+            }
+
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.showSlide(this.currentSlide);
+            }
+
+            startAutoSlide() {
+                this.slideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, this.autoSlideDelay);
+            }
+
+            pauseAutoSlide() {
+                if (this.slideInterval) {
+                    clearInterval(this.slideInterval);
+                    this.slideInterval = null;
+                }
+            }
+
+            resetAutoSlide() {
+                this.pauseAutoSlide();
+                this.startAutoSlide();
+            }
+        }
+
+        // Team Carousel Class (Manual Navigation Only)
+        class TeamCarousel {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 2;
+                this.slides = document.getElementById('teamSlides');
+                this.prevBtn = document.getElementById('teamPrevBtn');
+                this.nextBtn = document.getElementById('teamNextBtn');
+                this.indicators = document.querySelectorAll('.team-carousel .indicator');
+
+                if (this.slides) {
+                    this.init();
+                }
+            }
+
+            init() {
+                this.updateSlidePosition();
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                // Navigation buttons
+                if (this.prevBtn) {
+                    this.prevBtn.addEventListener('click', () => {
+                        this.previousSlide();
+                    });
+                }
+                if (this.nextBtn) {
+                    this.nextBtn.addEventListener('click', () => {
+                        this.nextSlide();
+                    });
+                }
+
+                // Indicator dots
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        this.goToSlide(index);
+                    });
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.closest('.team-carousel')) {
+                        if (e.key === 'ArrowLeft') {
+                            this.previousSlide();
+                        } else if (e.key === 'ArrowRight') {
+                            this.nextSlide();
+                        }
+                    }
+                });
+
+                // Touch/swipe support
+                this.setupTouchEvents();
+            }
+
+            setupTouchEvents() {
+                let startX = 0;
+                let currentX = 0;
+                let isDragging = false;
+
+                const carousel = document.querySelector('.team-carousel');
+                if (!carousel) return;
+
+                carousel.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                });
+
+                carousel.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    currentX = e.touches[0].clientX;
+                });
+
+                carousel.addEventListener('touchend', (e) => {
+                    if (!isDragging) return;
+                    isDragging = false;
+
+                    const diffX = startX - currentX;
+                    const threshold = 50;
+
+                    if (Math.abs(diffX) > threshold) {
+                        if (diffX > 0) {
+                            this.nextSlide();
+                        } else {
+                            this.previousSlide();
+                        }
+                    }
+                });
+            }
+
+            updateSlidePosition() {
+                const translateX = -this.currentSlide * 50; // Each slide is 50% width
+                this.slides.style.transform = `translateX(${translateX}%)`;
+
+                // Update navigation buttons - enable both arrows for looping
+                if (this.prevBtn) {
+                    this.prevBtn.disabled = false;
+                }
+                if (this.nextBtn) {
+                    this.nextBtn.disabled = false;
+                }
+
+                // Update indicators
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            nextSlide() {
+                if (this.currentSlide < this.totalSlides - 1) {
+                    this.currentSlide++;
+                } else {
+                    this.currentSlide = 0; // Loop back to first slide
+                }
+                this.updateSlidePosition();
+            }
+
+            previousSlide() {
+                if (this.currentSlide > 0) {
+                    this.currentSlide--;
+                } else {
+                    this.currentSlide = this.totalSlides - 1; // Loop to last slide
+                }
+                this.updateSlidePosition();
+            }
+
+            goToSlide(slideIndex) {
+                this.currentSlide = slideIndex;
+                this.updateSlidePosition();
+            }
+        }
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (navbar) {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
+                    const targetId = link.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
                             behavior: 'smooth'
                         });
                     }
                 });
             });
+        });
 
-            // Add hover effects for contact methods
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('.contact-method').forEach(method => {
-                    method.addEventListener('mouseenter', function () {
-                        this.style.borderLeftWidth = '6px';
-                    });
+        // Mobile Navigation Drawer Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileToggle = document.getElementById('mobileMenuToggle');
+            const navMenu = document.getElementById('navMenu');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const navLinks = document.querySelectorAll('.nav-link');
 
-                    method.addEventListener('mouseleave', function () {
-                        this.style.borderLeftWidth = '4px';
-                    });
-                });
-            });
-
-            // Main Hero Carousel (Enhanced with better auto-slide)
-            class HeroCarousel {
-                constructor() {
-                    this.currentSlide = 0;
-                    this.slides = document.querySelectorAll('.carousel-slide');
-                    this.dots = document.querySelectorAll('.hero-carousel .nav-dot');
-                    this.totalSlides = this.slides.length;
-                    this.slideInterval = null;
-                    this.autoSlideDelay = 2000; // 2 seconds between slides
-
-                    if (this.slides.length > 0) {
-                        this.init();
-                    }
-                }
-
-                init() {
-                    this.showSlide(0); // Show first slide immediately
-                    this.startAutoSlide();
-                    this.setupEventListeners();
-                }
-
-                setupEventListeners() {
-                    // Dot navigation
-                    this.dots.forEach((dot, index) => {
-                        dot.addEventListener('click', () => {
-                            this.goToSlide(index);
-                            this.resetAutoSlide();
-                        });
-                    });
-
-                    // Pause auto-slide on hover
-                    const carouselContainer = document.querySelector('.carousel-container');
-                    if (carouselContainer) {
-                        carouselContainer.addEventListener('mouseenter', () => {
-                            this.pauseAutoSlide();
-                        });
-
-                        carouselContainer.addEventListener('mouseleave', () => {
-                            this.startAutoSlide();
-                        });
+            if (mobileToggle && navMenu) {
+                // Toggle mobile menu
+                function toggleMobileMenu() {
+                    mobileToggle.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                    if (mobileOverlay) {
+                        mobileOverlay.classList.toggle('active');
                     }
 
-                    // Keyboard navigation
-                    document.addEventListener('keydown', (e) => {
-                        if (e.target.closest('.hero-carousel')) {
-                            if (e.key === 'ArrowLeft') {
-                                this.prevSlide();
-                                this.resetAutoSlide();
-                            } else if (e.key === 'ArrowRight') {
-                                this.nextSlide();
-                                this.resetAutoSlide();
-                            }
-                        }
-                    });
-                }
-
-                showSlide(index) {
-                    // Remove active class from all slides and dots
-                    this.slides.forEach(slide => slide.classList.remove('active'));
-                    this.dots.forEach(dot => dot.classList.remove('active'));
-
-                    // Add active class to current slide and dot
-                    this.slides[index].classList.add('active');
-                    if (this.dots[index]) {
-                        this.dots[index].classList.add('active');
-                    }
-                }
-
-                goToSlide(index) {
-                    this.currentSlide = index;
-                    this.showSlide(this.currentSlide);
-                }
-
-                nextSlide() {
-                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                    this.showSlide(this.currentSlide);
-                }
-
-                prevSlide() {
-                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                    this.showSlide(this.currentSlide);
-                }
-
-                startAutoSlide() {
-                    this.slideInterval = setInterval(() => {
-                        this.nextSlide();
-                    }, this.autoSlideDelay);
-                }
-
-                pauseAutoSlide() {
-                    if (this.slideInterval) {
-                        clearInterval(this.slideInterval);
-                        this.slideInterval = null;
-                    }
-                }
-
-                resetAutoSlide() {
-                    this.pauseAutoSlide();
-                    this.startAutoSlide();
-                }
-            }
-
-            // Team Carousel Class (Manual Navigation Only)
-            class TeamCarousel {
-                constructor() {
-                    this.currentSlide = 0;
-                    this.totalSlides = 2;
-                    this.slides = document.getElementById('teamSlides');
-                    this.prevBtn = document.getElementById('teamPrevBtn');
-                    this.nextBtn = document.getElementById('teamNextBtn');
-                    this.indicators = document.querySelectorAll('.team-carousel .indicator');
-
-                    if (this.slides) {
-                        this.init();
-                    }
-                }
-
-                init() {
-                    this.updateSlidePosition();
-                    this.setupEventListeners();
-                }
-
-                setupEventListeners() {
-                    // Navigation buttons
-                    if (this.prevBtn) {
-                        this.prevBtn.addEventListener('click', () => {
-                            this.previousSlide();
-                        });
-                    }
-                    if (this.nextBtn) {
-                        this.nextBtn.addEventListener('click', () => {
-                            this.nextSlide();
-                        });
-                    }
-
-                    // Indicator dots
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.addEventListener('click', () => {
-                            this.goToSlide(index);
-                        });
-                    });
-
-                    // Keyboard navigation
-                    document.addEventListener('keydown', (e) => {
-                        if (e.target.closest('.team-carousel')) {
-                            if (e.key === 'ArrowLeft') {
-                                this.previousSlide();
-                            } else if (e.key === 'ArrowRight') {
-                                this.nextSlide();
-                            }
-                        }
-                    });
-
-                    // Touch/swipe support
-                    this.setupTouchEvents();
-                }
-
-                setupTouchEvents() {
-                    let startX = 0;
-                    let currentX = 0;
-                    let isDragging = false;
-
-                    const carousel = document.querySelector('.team-carousel');
-                    if (!carousel) return;
-
-                    carousel.addEventListener('touchstart', (e) => {
-                        startX = e.touches[0].clientX;
-                        isDragging = true;
-                    });
-
-                    carousel.addEventListener('touchmove', (e) => {
-                        if (!isDragging) return;
-                        currentX = e.touches[0].clientX;
-                    });
-
-                    carousel.addEventListener('touchend', (e) => {
-                        if (!isDragging) return;
-                        isDragging = false;
-
-                        const diffX = startX - currentX;
-                        const threshold = 50;
-
-                        if (Math.abs(diffX) > threshold) {
-                            if (diffX > 0) {
-                                this.nextSlide();
-                            } else {
-                                this.previousSlide();
-                            }
-                        }
-                    });
-                }
-
-                updateSlidePosition() {
-                    const translateX = -this.currentSlide * 50; // Each slide is 50% width
-                    this.slides.style.transform = `translateX(${translateX}%)`;
-
-                    // Update navigation buttons - enable both arrows for looping
-                    if (this.prevBtn) {
-                        this.prevBtn.disabled = false;
-                    }
-                    if (this.nextBtn) {
-                        this.nextBtn.disabled = false;
-                    }
-
-                    // Update indicators
-                    this.indicators.forEach((indicator, index) => {
-                        indicator.classList.toggle('active', index === this.currentSlide);
-                    });
-                }
-
-                nextSlide() {
-                    if (this.currentSlide < this.totalSlides - 1) {
-                        this.currentSlide++;
+                    // Prevent body scroll when menu is open
+                    if (navMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
                     } else {
-                        this.currentSlide = 0; // Loop back to first slide
-                    }
-                    this.updateSlidePosition();
-                }
-
-                previousSlide() {
-                    if (this.currentSlide > 0) {
-                        this.currentSlide--;
-                    } else {
-                        this.currentSlide = this.totalSlides - 1; // Loop to last slide
-                    }
-                    this.updateSlidePosition();
-                }
-
-                goToSlide(slideIndex) {
-                    this.currentSlide = slideIndex;
-                    this.updateSlidePosition();
-                }
-            }
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                const navbar = document.getElementById('navbar');
-                if (navbar) {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                    } else {
-                        navbar.classList.remove('scrolled');
-                    }
-                }
-            });
-
-            // Smooth scrolling for navigation links
-            document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const targetId = link.getAttribute('href').substring(1);
-                        const targetElement = document.getElementById(targetId);
-
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            });
-
-            // Mobile Navigation Drawer Functionality
-            document.addEventListener('DOMContentLoaded', function () {
-                const mobileToggle = document.getElementById('mobileMenuToggle');
-                const navMenu = document.getElementById('navMenu');
-                const mobileOverlay = document.getElementById('mobileOverlay');
-                const navLinks = document.querySelectorAll('.nav-link');
-
-                if (mobileToggle && navMenu) {
-                    // Toggle mobile menu
-                    function toggleMobileMenu() {
-                        mobileToggle.classList.toggle('active');
-                        navMenu.classList.toggle('active');
-                        if (mobileOverlay) {
-                            mobileOverlay.classList.toggle('active');
-                        }
-
-                        // Prevent body scroll when menu is open
-                        if (navMenu.classList.contains('active')) {
-                            document.body.style.overflow = 'hidden';
-                        } else {
-                            document.body.style.overflow = '';
-                        }
-                    }
-
-                    // Close mobile menu
-                    function closeMobileMenu() {
-                        mobileToggle.classList.remove('active');
-                        navMenu.classList.remove('active');
-                        if (mobileOverlay) {
-                            mobileOverlay.classList.remove('active');
-                        }
                         document.body.style.overflow = '';
                     }
+                }
 
-                    // Event listeners
-                    mobileToggle.addEventListener('click', toggleMobileMenu);
+                // Close mobile menu
+                function closeMobileMenu() {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
                     if (mobileOverlay) {
-                        mobileOverlay.addEventListener('click', closeMobileMenu);
+                        mobileOverlay.classList.remove('active');
                     }
-
-                    // Close menu when clicking on nav links
-                    navLinks.forEach(link => {
-                        link.addEventListener('click', closeMobileMenu);
-                    });
-
-                    // Close menu on escape key
-                    document.addEventListener('keydown', function (e) {
-                        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                            closeMobileMenu();
-                        }
-                    });
-
-                    // Close menu on window resize if screen becomes larger
-                    window.addEventListener('resize', function () {
-                        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-                            closeMobileMenu();
-                        }
-                    });
+                    document.body.style.overflow = '';
                 }
-            });
 
-            // Project data with full details
-            const projectData = {
-                project1: {
-                    title: "E-Commerce Platform",
-                    client: "TechCorp Solutions",
-                    description: "Developed a comprehensive e-commerce platform with advanced inventory management, real-time analytics, and seamless payment integration. The solution increased client sales by 150% within the first quarter and provided a robust foundation for future growth.",
-                    techStack: ["React", "Node.js", "MongoDB", "Stripe API", "Redux", "Express.js"],
-                    features: [
-                        "Advanced inventory management system",
-                        "Real-time analytics dashboard",
-                        "Seamless payment integration with multiple gateways",
-                        "Responsive design for all devices",
-                        "Admin panel with comprehensive controls",
-                        "Customer review and rating system"
-                    ]
-                },
-                project2: {
-                    title: "Brand Identity System",
-                    client: "GreenSpark Energy",
-                    description: "Created a complete brand identity including logo design, color schemes, typography guidelines, and marketing materials. The rebrand helped establish their position as a premium renewable energy provider and significantly improved brand recognition.",
-                    techStack: ["Adobe Illustrator", "Photoshop", "InDesign", "Figma"],
-                    features: [
-                        "Custom logo design with multiple variations",
-                        "Comprehensive brand guidelines document",
-                        "Color palette and typography system",
-                        "Business card and letterhead design",
-                        "Marketing collateral templates",
-                        "Digital asset library"
-                    ]
-                },
-                project3: {
-                    title: "Financial Dashboard",
-                    client: "FinanceSync Pro",
-                    description: "Built an intuitive financial dashboard with real-time data visualization, automated reporting, and predictive analytics. The platform streamlined financial operations for over 500+ small businesses and provided valuable insights for decision-making.",
-                    techStack: ["Vue.js", "D3.js", "Python", "PostgreSQL", "Chart.js", "FastAPI"],
-                    features: [
-                        "Real-time financial data visualization",
-                        "Automated report generation",
-                        "Predictive analytics and forecasting",
-                        "Multi-currency support",
-                        "Customizable dashboard widgets",
-                        "Export functionality for reports"
-                    ]
-                },
-                project4: {
-                    title: "Learning Management System",
-                    client: "MindLeap Academy",
-                    description: "Designed and developed a comprehensive LMS with course creation tools, student progress tracking, and interactive assessments. The platform successfully onboarded 10,000+ students in the first year and continues to grow rapidly.",
-                    techStack: ["Angular", "Laravel", "MySQL", "WebRTC", "Socket.io", "AWS"],
-                    features: [
-                        "Interactive course creation tools",
-                        "Student progress tracking and analytics",
-                        "Live video conferencing capabilities",
-                        "Automated grading system",
-                        "Discussion forums and messaging",
-                        "Mobile-responsive design"
-                    ]
-                },
-                project5: {
-                    title: "Healthcare Mobile App",
-                    client: "HealthSync Medical",
-                    description: "Developed a HIPAA-compliant mobile application for patient management, appointment scheduling, and telemedicine consultations. The app improved patient engagement by 200% and significantly reduced administrative overhead.",
-                    techStack: ["React Native", "Firebase", "WebRTC", "HIPAA Compliance", "Push Notifications"],
-                    features: [
-                        "HIPAA-compliant patient data management",
-                        "Telemedicine video consultations",
-                        "Appointment scheduling system",
-                        "Prescription management",
-                        "Secure messaging between patients and doctors",
-                        "Health records and document storage"
-                    ]
-                },
-                project6: {
-                    title: "Restaurant Chain Website",
-                    client: "Royal Bistro Group",
-                    description: "Created a modern, responsive website with online ordering, table reservations, and loyalty program integration. The platform increased online orders by 300% and improved customer retention significantly through enhanced user experience.",
-                    techStack: ["WordPress", "WooCommerce", "Custom PHP", "API Integration", "MySQL"],
-                    features: [
-                        "Online ordering system with real-time updates",
-                        "Table reservation management",
-                        "Loyalty program integration",
-                        "Menu management system",
-                        "Location-based services",
-                        "Customer feedback and review system"
-                    ]
+                // Event listeners
+                mobileToggle.addEventListener('click', toggleMobileMenu);
+                if (mobileOverlay) {
+                    mobileOverlay.addEventListener('click', closeMobileMenu);
                 }
-            };
 
-            function openModal(projectId) {
-                const project = projectData[projectId];
-                const modalContent = document.getElementById('modalContent');
+                // Close menu when clicking on nav links
+                navLinks.forEach(link => {
+                    link.addEventListener('click', closeMobileMenu);
+                });
 
-                if (modalContent && project) {
-                    modalContent.innerHTML = `
+                // Close menu on escape key
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                });
+
+                // Close menu on window resize if screen becomes larger
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+        });
+
+        // Project data with full details
+        const projectData = {
+            project1: {
+                title: "E-Commerce Platform",
+                client: "TechCorp Solutions",
+                description: "Developed a comprehensive e-commerce platform with advanced inventory management, real-time analytics, and seamless payment integration. The solution increased client sales by 150% within the first quarter and provided a robust foundation for future growth.",
+                techStack: ["React", "Node.js", "MongoDB", "Stripe API", "Redux", "Express.js"],
+                features: [
+                    "Advanced inventory management system",
+                    "Real-time analytics dashboard",
+                    "Seamless payment integration with multiple gateways",
+                    "Responsive design for all devices",
+                    "Admin panel with comprehensive controls",
+                    "Customer review and rating system"
+                ]
+            },
+            project2: {
+                title: "Brand Identity System",
+                client: "GreenSpark Energy",
+                description: "Created a complete brand identity including logo design, color schemes, typography guidelines, and marketing materials. The rebrand helped establish their position as a premium renewable energy provider and significantly improved brand recognition.",
+                techStack: ["Adobe Illustrator", "Photoshop", "InDesign", "Figma"],
+                features: [
+                    "Custom logo design with multiple variations",
+                    "Comprehensive brand guidelines document",
+                    "Color palette and typography system",
+                    "Business card and letterhead design",
+                    "Marketing collateral templates",
+                    "Digital asset library"
+                ]
+            },
+            project3: {
+                title: "Financial Dashboard",
+                client: "FinanceSync Pro",
+                description: "Built an intuitive financial dashboard with real-time data visualization, automated reporting, and predictive analytics. The platform streamlined financial operations for over 500+ small businesses and provided valuable insights for decision-making.",
+                techStack: ["Vue.js", "D3.js", "Python", "PostgreSQL", "Chart.js", "FastAPI"],
+                features: [
+                    "Real-time financial data visualization",
+                    "Automated report generation",
+                    "Predictive analytics and forecasting",
+                    "Multi-currency support",
+                    "Customizable dashboard widgets",
+                    "Export functionality for reports"
+                ]
+            },
+            project4: {
+                title: "Learning Management System",
+                client: "MindLeap Academy",
+                description: "Designed and developed a comprehensive LMS with course creation tools, student progress tracking, and interactive assessments. The platform successfully onboarded 10,000+ students in the first year and continues to grow rapidly.",
+                techStack: ["Angular", "Laravel", "MySQL", "WebRTC", "Socket.io", "AWS"],
+                features: [
+                    "Interactive course creation tools",
+                    "Student progress tracking and analytics",
+                    "Live video conferencing capabilities",
+                    "Automated grading system",
+                    "Discussion forums and messaging",
+                    "Mobile-responsive design"
+                ]
+            },
+            project5: {
+                title: "Healthcare Mobile App",
+                client: "HealthSync Medical",
+                description: "Developed a HIPAA-compliant mobile application for patient management, appointment scheduling, and telemedicine consultations. The app improved patient engagement by 200% and significantly reduced administrative overhead.",
+                techStack: ["React Native", "Firebase", "WebRTC", "HIPAA Compliance", "Push Notifications"],
+                features: [
+                    "HIPAA-compliant patient data management",
+                    "Telemedicine video consultations",
+                    "Appointment scheduling system",
+                    "Prescription management",
+                    "Secure messaging between patients and doctors",
+                    "Health records and document storage"
+                ]
+            },
+            project6: {
+                title: "Restaurant Chain Website",
+                client: "Royal Bistro Group",
+                description: "Created a modern, responsive website with online ordering, table reservations, and loyalty program integration. The platform increased online orders by 300% and improved customer retention significantly through enhanced user experience.",
+                techStack: ["WordPress", "WooCommerce", "Custom PHP", "API Integration", "MySQL"],
+                features: [
+                    "Online ordering system with real-time updates",
+                    "Table reservation management",
+                    "Loyalty program integration",
+                    "Menu management system",
+                    "Location-based services",
+                    "Customer feedback and review system"
+                ]
+            }
+        };
+
+        function openModal(projectId) {
+            const project = projectData[projectId];
+            const modalContent = document.getElementById('modalContent');
+
+            if (modalContent && project) {
+                modalContent.innerHTML = `
             <div class="modal-header">
                 <div class="modal-project-info">
                     <h2>${project.title}</h2>
@@ -4320,280 +4252,265 @@
             </div>
         `;
 
-                    const modalOverlay = document.getElementById('modalOverlay');
-                    if (modalOverlay) {
-                        modalOverlay.classList.add('active');
-                        document.body.style.overflow = 'hidden';
-                    }
-                }
-            }
-
-            function closeModal(event) {
-                if (event && event.target !== event.currentTarget && !event.target.classList.contains('modal-close')) {
-                    return;
-                }
-
                 const modalOverlay = document.getElementById('modalOverlay');
                 if (modalOverlay) {
-                    modalOverlay.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 }
             }
+        }
 
-            // Close modal with Escape key
-            document.addEventListener('keydown', function (event) {
-                if (event.key === 'Escape') {
-                    closeModal();
-                }
+        function closeModal(event) {
+            if (event && event.target !== event.currentTarget && !event.target.classList.contains('modal-close')) {
+                return;
+            }
+
+            const modalOverlay = document.getElementById('modalOverlay');
+            if (modalOverlay) {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Add staggered animation to cards
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
             });
+        });
 
-            // Add staggered animation to cards
-            document.addEventListener('DOMContentLoaded', function () {
-                const cards = document.querySelectorAll('.project-card');
-                cards.forEach((card, index) => {
-                    card.style.animationDelay = `${index * 0.1}s`;
-                });
-            });
+         class TestimonialSlider {
+            constructor() {
+                this.track = document.getElementById('testimonialTrack');
+                this.indicators = document.querySelectorAll('.indicator');
+                this.currentSlide = 0;
+                this.totalSlides = 5;
+                this.autoSlideInterval = null;
+                this.isTransitioning = false;
+                
+                this.init();
+            }
 
-            // Testimonial Slideshow Class (Enhanced)
-            class TestimonialSlideshow {
-                constructor() {
-                    this.testimonials = document.querySelectorAll('.testimonial');
-                    this.navDots = document.querySelectorAll('.testimonial-container .nav-dot');
-                    this.prevBtn = document.getElementById('testimonialPrevBtn');
-                    this.nextBtn = document.getElementById('testimonialNextBtn');
-                    this.currentSlide = 0;
-                    this.autoSlideInterval = null;
-                    this.autoSlideDelay = 1000; // 6 seconds between testimonials
+            init() {
+                this.setupIndicators();
+                this.startAutoSlide();
+                this.setupHoverPause();
+            }
 
-                    if (this.testimonials.length > 0) {
-                        this.init();
-                    }
-                }
-
-                init() {
-                    this.goToSlide(0); // Show first testimonial immediately
-                    this.setupEventListeners();
-                    this.startAutoSlide();
-                }
-
-                setupEventListeners() {
-                    // Navigation dots
-                    this.navDots.forEach((dot, index) => {
-                        dot.addEventListener('click', () => {
+            setupIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        if (!this.isTransitioning) {
                             this.goToSlide(index);
-                            this.resetAutoSlide();
-                        });
-                    });
-
-                    // Arrow navigation
-                    if (this.prevBtn) {
-                        this.prevBtn.addEventListener('click', () => {
-                            this.previousSlide();
-                            this.resetAutoSlide();
-                        });
-                    }
-
-                    if (this.nextBtn) {
-                        this.nextBtn.addEventListener('click', () => {
-                            this.nextSlide();
-                            this.resetAutoSlide();
-                        });
-                    }
-
-                    // Pause auto-slide on hover
-                    const container = document.querySelector('.testimonial-container');
-                    if (container) {
-                        container.addEventListener('mouseenter', () => this.pauseAutoSlide());
-                        container.addEventListener('mouseleave', () => this.startAutoSlide());
-                    }
-
-                    // Keyboard navigation
-                    document.addEventListener('keydown', (e) => {
-                        if (e.target.closest('.testimonial-container')) {
-                            if (e.key === 'ArrowLeft') {
-                                this.previousSlide();
-                                this.resetAutoSlide();
-                            } else if (e.key === 'ArrowRight') {
-                                this.nextSlide();
-                                this.resetAutoSlide();
-                            }
+                            this.restartAutoSlide();
                         }
                     });
-                }
+                });
+            }
 
-                goToSlide(index) {
-                    // Hide current slide
-                    this.testimonials[this.currentSlide].classList.remove('active');
-                    this.navDots[this.currentSlide].classList.remove('active');
+            goToSlide(slideIndex) {
+                if (this.isTransitioning) return;
+                
+                this.isTransitioning = true;
+                this.currentSlide = slideIndex;
+                
+                const translateX = -slideIndex * 100;
+                this.track.style.transform = `translateX(${translateX}%)`;
+                
+                this.updateIndicators();
+                
+                setTimeout(() => {
+                    this.isTransitioning = false;
+                }, 400);
+            }
 
-                    // Show new slide
-                    this.currentSlide = index;
-                    this.testimonials[this.currentSlide].classList.add('active');
-                    this.navDots[this.currentSlide].classList.add('active');
-                }
+            updateIndicators() {
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
 
-                nextSlide() {
-                    const nextIndex = (this.currentSlide + 1) % this.testimonials.length;
-                    this.goToSlide(nextIndex);
-                }
+            nextSlide() {
+                const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(nextIndex);
+            }
 
-                previousSlide() {
-                    const prevIndex = (this.currentSlide - 1 + this.testimonials.length) % this.testimonials.length;
-                    this.goToSlide(prevIndex);
-                }
+            startAutoSlide() {
+                this.autoSlideInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 2000);
+            }
 
-                startAutoSlide() {
-                    this.autoSlideInterval = setInterval(() => {
-                        this.nextSlide();
-                    }, this.autoSlideDelay);
-                }
-
-                pauseAutoSlide() {
-                    if (this.autoSlideInterval) {
-                        clearInterval(this.autoSlideInterval);
-                        this.autoSlideInterval = null;
-                    }
-                }
-
-                resetAutoSlide() {
-                    this.pauseAutoSlide();
-                    this.startAutoSlide();
+            stopAutoSlide() {
+                if (this.autoSlideInterval) {
+                    clearInterval(this.autoSlideInterval);
+                    this.autoSlideInterval = null;
                 }
             }
 
-            // Enhanced project card animations and parallax effect
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const projectCards = document.querySelectorAll('.project-card');
+            restartAutoSlide() {
+                this.stopAutoSlide();
+                this.startAutoSlide();
+            }
 
-                projectCards.forEach((card, index) => {
-                    const cardTop = card.offsetTop;
-                    const cardHeight = card.offsetHeight;
-                    const windowHeight = window.innerHeight;
-
-                    if (scrolled + windowHeight > cardTop && scrolled < cardTop + cardHeight) {
-                        const rate = scrolled * -0.5;
-                        card.style.transform = `translateY(${rate * 0.1}px)`;
-                    }
+            setupHoverPause() {
+                const section = document.querySelector('.testimonial-section');
+                
+                section.addEventListener('mouseenter', () => {
+                    this.stopAutoSlide();
                 });
+                
+                section.addEventListener('mouseleave', () => {
+                    this.startAutoSlide();
+                });
+            }
+        }
+
+        // Initialize the slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TestimonialSlider();
+        });
+
+        // Enhanced project card animations and parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const projectCards = document.querySelectorAll('.project-card');
+
+            projectCards.forEach((card, index) => {
+                const cardTop = card.offsetTop;
+                const cardHeight = card.offsetHeight;
+                const windowHeight = window.innerHeight;
+
+                if (scrolled + windowHeight > cardTop && scrolled < cardTop + cardHeight) {
+                    const rate = scrolled * -0.5;
+                    card.style.transform = `translateY(${rate * 0.1}px)`;
+                }
             });
+        });
 
-            // Navigation link effects
-            document.addEventListener('DOMContentLoaded', () => {
-                const navLinks = document.querySelectorAll('.nav-link');
-                const projectCards = document.querySelectorAll('.project-card');
+        // Navigation link effects
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const projectCards = document.querySelectorAll('.project-card');
 
-                navLinks.forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        // Remove active class from all links
-                        navLinks.forEach(l => l.classList.remove('active'));
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Remove active class from all links
+                    navLinks.forEach(l => l.classList.remove('active'));
 
-                        // Add active class to clicked link
-                        link.classList.add('active');
+                    // Add active class to clicked link
+                    link.classList.add('active');
 
-                        // Add a subtle animation to project cards
-                        projectCards.forEach((card, index) => {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
+                    // Add a subtle animation to project cards
+                    projectCards.forEach((card, index) => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
 
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, index * 100);
-                        });
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, index * 100);
                     });
                 });
             });
+        });
 
-            // Initialize all components when DOM is loaded
-            document.addEventListener('DOMContentLoaded', () => {
-                // Initialize Hero Carousel
-                new HeroCarousel();
+        // Initialize all components when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Hero Carousel
+            new HeroCarousel();
 
-                // Initialize Team Carousel
-                new TeamCarousel();
+            // Initialize Team Carousel
+            new TeamCarousel();
 
-                // Initialize Testimonial Slideshow
-                new TestimonialSlideshow();
-            });
+            // Initialize Testimonial Slideshow
+            new TestimonialSlideshow();
+        });
 
 
-            // Team Slider JavaScript
-            let currentSlide = 0;
-            const totalSlides = 2;
+        // Team Slider JavaScript
+        let currentSlide = 0;
+        const totalSlides = 2;
 
-            function nextSlide() {
-                const slider = document.getElementById('teamSlider');
+        function nextSlide() {
+            const slider = document.getElementById('teamSlider');
 
-                if (currentSlide < totalSlides - 1) {
-                    currentSlide++;
-                } else {
-                    currentSlide = 0; // Loop back to first slide
-                }
-
-                updateSlider(slider);
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+            } else {
+                currentSlide = 0; // Loop back to first slide
             }
 
-            function prevSlide() {
-                const slider = document.getElementById('teamSlider');
+            updateSlider(slider);
+        }
 
-                if (currentSlide > 0) {
-                    currentSlide--;
-                } else {
-                    currentSlide = totalSlides - 1; // Loop to last slide
-                }
+        function prevSlide() {
+            const slider = document.getElementById('teamSlider');
 
-                updateSlider(slider);
+            if (currentSlide > 0) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides - 1; // Loop to last slide
             }
 
-            function updateSlider(slider) {
-                const translateX = -currentSlide * 50; // 50% for each slide
-                slider.style.transform = `translateX(${translateX}%)`;
-            }
+            updateSlider(slider);
+        }
 
-            // Optional: Auto-slide functionality (uncomment if desired)
-            /*
-            setInterval(() => {
+        function updateSlider(slider) {
+            const translateX = -currentSlide * 50; // 50% for each slide
+            slider.style.transform = `translateX(${translateX}%)`;
+        }
+
+        // Optional: Auto-slide functionality (uncomment if desired)
+        /*
+        setInterval(() => {
+            nextSlide();
+        }, 5000); // Auto-advance every 5 seconds
+        */
+
+        // Optional: Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
                 nextSlide();
-            }, 5000); // Auto-advance every 5 seconds
-            */
+            }
+        });
 
-            // Optional: Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                }
-            });
+        // Optional: Touch/swipe support for mobile
+        let startX = 0;
+        let endX = 0;
 
-            // Optional: Touch/swipe support for mobile
-            let startX = 0;
-            let endX = 0;
+        document.getElementById('teamSlider').addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
 
-            document.getElementById('teamSlider').addEventListener('touchstart', (e) => {
-                startX = e.touches[0].clientX;
-            });
+        document.getElementById('teamSlider').addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
 
-            document.getElementById('teamSlider').addEventListener('touchend', (e) => {
-                endX = e.changedTouches[0].clientX;
-                handleSwipe();
-            });
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
 
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                const diff = startX - endX;
-
-                if (Math.abs(diff) > swipeThreshold) {
-                    if (diff > 0) {
-                        nextSlide(); // Swipe left, go to next slide
-                    } else {
-                        prevSlide(); // Swipe right, go to previous slide
-                    }
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide(); // Swipe left, go to next slide
+                } else {
+                    prevSlide(); // Swipe right, go to previous slide
                 }
             }
-        </script>
+        }
+    </script>
 </body>
 
 </html>
