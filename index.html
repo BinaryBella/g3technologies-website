@@ -323,7 +323,6 @@
             height: 100%;
             opacity: 0;
             transition: opacity 0.25s ease-in-out;
-            /* Faster transition - reduced from 1s to 0.5s */
             display: flex;
             align-items: center;
         }
@@ -387,6 +386,7 @@
             background: #f9ae18;
             color: white;
             box-shadow: 0 4px 15px rgba(249, 174, 24, 0.3);
+            width: 200px;
         }
 
         .btn-primary:hover {
@@ -398,6 +398,7 @@
             background: transparent;
             color: #ed1d25;
             border: 2px solid #ed1d25;
+            width: 200px;
         }
 
         .btn-secondary:hover {
@@ -726,167 +727,235 @@
         }
 
         /* Team Section */
-        .team {
-            background: #f8f9fa;
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px 20px;
+            margin-bottom: 90px;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-            margin-left: 90px;
-            margin-right: 90px;
+        .team-slider {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 200%;
+        }
+
+        .team-slide {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 50%;
+            flex-shrink: 0;
         }
 
         .team-member {
-            background: white;
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(90, 90, 90, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
+            flex: 1;
+            max-width: 400px;
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .team-member:nth-child(1) {
-            animation-delay: 0.2s;
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            transition: left 0.6s ease;
         }
 
-        .team-member:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .team-member:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        .team-member:nth-child(4) {
-            animation-delay: 0.8s;
+        .team-member:hover::before {
+            left: 100%;
         }
 
         .team-member:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .team-photo {
-            width: 100%;
+        .member-avatar {
+            width: 300px;
             height: 300px;
-            background: linear-gradient(135deg, #f9ae18 0%, #ed1d25 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
-        .team-photo img {
+        .member-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 100%;
         }
 
-        .team-photo::before {
+
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #5a5a5a;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: #7e7e7e;
+            margin-bottom: 15px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .member-bio {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #181818;
+            opacity: 0.9;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
             position: absolute;
             top: 50%;
-            left: 50%;
-            width: 120px;
-            height: 120px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            color: rgb(138, 22, 6);
+            border: none;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .team-info {
-            padding: 30px;
-            text-align: center;
-        }
-
-        .team-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 10px;
-        }
-
-        .team-role {
-            font-size: 1.1rem;
-            color: #ed1d25;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .team-bio {
-            color: #666;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #f9ae18 0%, #ed1d25 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
+            font-size: 2rem;
+            cursor: pointer;
             transition: all 0.3s ease;
+            border: 2px solid rgba(216, 56, 16, 0.3);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .social-link:hover {
-            transform: scale(1.1);
-            box-shadow: 0 5px 15px rgba(237, 29, 37, 0.3);
+        .nav-arrow:hover {
+            background: #f95818;
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .nav-arrow.prev {
+            left: 0px;
+            background: #f9ae18;
+        }
+
+        .nav-arrow.next {
+            right: 0px;
+            background: #f9ae18;
+        }
+
+        .nav-arrow:active {
+            background: #f95818;
+;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5rem;
+            .team-section {
+                padding: 60px 15px;
             }
 
             .section-title {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+
+            .team-slide {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .team-member {
+                max-width: 280px;
+                padding: 25px 15px;
+                min-height: 320px;
+            }
+
+            .member-avatar {
+                width: 80px;
+                height: 80px;
                 font-size: 2rem;
             }
 
-            .timeline::after {
-                left: 31px;
+            .member-name {
+                font-size: 1.3rem;
             }
 
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
+            .nav-arrow {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
             }
 
-            .timeline-item::after {
-                left: 21px;
+            .nav-arrow.prev {
+                left: 10px;
             }
 
-            .timeline-item:nth-child(even) {
-                left: 0%;
+            .nav-arrow.next {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .team-container {
+                padding: 30px 15px;
+                margin: 0 10px;
             }
 
-            .team-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .section-title {
+                font-size: 1.8rem;
             }
+
+            .team-member {
+                max-width: 250px;
+                min-height: 300px;
+            }
+
+            .member-bio {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Slide Animation Classes */
+        .team-slider.slide-left {
+            transform: translateX(-50%);
+        }
+
+        .team-slider.slide-right {
+            transform: translateX(0%);
         }
 
         /* Portfolio section styles */
@@ -939,12 +1008,16 @@
             font-weight: 600;
             color: #333;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .client-section {
             display: flex;
             align-items: center;
+            margin-top: 5px;
             margin-bottom: 5px;
+            text-align: center;
+            justify-content: center;
         }
 
         .client-logo {
@@ -954,19 +1027,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
             font-weight: bold;
             color: #ffffff;
             font-size: 24px;
             flex-shrink: 0;
-            margin: 20px;
-            margin-right: 40px;
         }
 
         .client-name {
             color: #666;
             font-size: 1.1rem;
             font-weight: 500;
+            text-align: center;
         }
 
         .project-description {
@@ -974,6 +1045,7 @@
             margin-bottom: 25px;
             line-height: 1.6;
             font-size: 0.95rem;
+            text-align: justify;
         }
 
         .view-more-btn {
@@ -1308,18 +1380,6 @@
             position: relative;
         }
 
-        .contact-info h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #f9ae18 0%, #ed1d25 100%);
-            border-radius: 2px;
-        }
-
         .contact-methods {
             display: flex;
             flex-direction: column;
@@ -1389,98 +1449,180 @@
             background: linear-gradient(90deg, #f9ae18 0%, #ed1d25 100%);
         }
 
-        .form-container h2 {
-            font-size: 2.2rem;
-            color: #000000;
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-        }
 
-        .form-container h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #f9ae18 0%, #ed1d25 100%);
-            border-radius: 2px;
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            text-align: center;
         }
 
         .form-group {
             margin-bottom: 25px;
+            position: relative;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #000000;
-            font-weight: 500;
-            font-size: 0.95rem;
+            color: #555;
+            font-weight: 600;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 15px;
-            border: 2px solid #e5e5e5;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            font-family: inherit;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: #f9ae18;
-            box-shadow: 0 0 0 3px rgba(249, 174, 24, 0.1);
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .button-group {
             display: flex;
             gap: 15px;
-            justify-content: center;
             margin-top: 30px;
         }
 
         .btn {
-            padding: 12px 25px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            min-width: 100px;
         }
 
         .btn-primary {
             background: #f9ae18;
-            color: #ffffff;
+            color: white;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(249, 174, 24, 0.4);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
 
         .btn-secondary {
-            background: #ffffff;
-            color: #000000;
-            border: 2px solid #e5e5e5;
+            background: #f8f9fa;
+            color: #666;
+            border: 2px solid #e1e5e9;
         }
 
         .btn-secondary:hover {
-            background: #f8f8f8;
-            border-color: #d1d1d1;
+            background: #e9ecef;
+            transform: translateY(-2px);
+        }
+
+        /* Success Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h3 {
+            color: #000000;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .modal-content p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .modal-btn {
+            background: #f9ae18;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 30px 20px;
+            }
+
+            .info-section h1 {
+                font-size: 2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
         }
 
         /* Second Row - Social Media Section (Full Width) */
@@ -1509,18 +1651,6 @@
             font-size: 2.2rem;
             margin-bottom: 30px;
             position: relative;
-        }
-
-        .social-media-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #f9ae18 0%, #ed1d25 100%);
-            border-radius: 2px;
         }
 
         .social-links {
@@ -2214,6 +2344,7 @@
                 padding: 12px;
                 font-size: 0.95rem;
                 border-radius: 6px;
+                font-family: Arial, Helvetica, sans-serif;
             }
 
             .form-group textarea {
@@ -2419,23 +2550,6 @@
                 overflow-x: hidden;
             }
         }
-
-        /* Logo placeholder styling
-        .logo-placeholder {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-placeholder img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        } */
 
         /* Mobile Navigation Drawer */
         .mobile-menu-toggle {
@@ -2874,7 +2988,6 @@
 </head>
 
 <body>
-
     <!-- Loading Spinner -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-spinner">
@@ -2911,7 +3024,6 @@
     <!-- Mobile Overlay (add this right after the nav) -->
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
-
     <!-- Hero Section with Carousel -->
     <section id="home">
 
@@ -2932,8 +3044,7 @@
                             </div>
                         </div>
                         <div class="slide-image">
-                            <img
-                                src="images/hero1.png">
+                            <img src="images/hero1.png">
                         </div>
                     </div>
                 </div>
@@ -2953,8 +3064,7 @@
                             </div>
                         </div>
                         <div class="slide-image">
-                            <img
-                                src="images/hero2.png">
+                            <img src="images/hero2.png">
                         </div>
                     </div>
                 </div>
@@ -2973,8 +3083,7 @@
                             </div>
                         </div>
                         <div class="slide-image">
-                            <img
-                                src="images/hero3.png">
+                            <img src="images/hero3.png">
                         </div>
                     </div>
                 </div>
@@ -3051,59 +3160,85 @@
                 </div>
             </div>
         </section>
+    </section>
 
-        <!-- Team Section -->
-        <section class="section team">
-            <div class="container">
-                <h2 class="section-title">Meet Our Team</h2>
-                <p class="section-subtitle">The creative minds and technical experts behind SyncGen's success</p>
 
-                <div class="team-grid">
+
+    <!-- Team Section -->
+    <section id="team" class="team-section">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-slider" id="teamSlider">
+                <!-- Slide 1 -->
+                <div class="team-slide">
                     <div class="team-member">
-                        <div class="team-photo">
-                            <img
-                                src="images/profile.png">
+                        <div class="member-avatar">
+                            <img src="images/profile.png">
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">John Anderson</h3>
-                            <p class="team-role">CEO & Founder</p>
-                            <p class="team-bio">Visionary leader with 15+ years in tech innovation. John drives
-                                SyncGen's
-                                strategic direction and ensures we stay at the forefront of technological advancement.
-                            </p>
-                        </div>
+                        <div class="member-name">Alex Smith</div>
+                        <div class="member-role">Chief Executive Officer</div>
+                        <div class="member-bio">Visionary leader with 15+ years of experience in technology strategy and
+                            business development.</div>
                     </div>
-
                     <div class="team-member">
-                        <div class="team-photo">
-                            <img
-                                src="images/profile2.jpg">
+                        <div class="member-avatar">
+                            <img src="images/profile2.jpg">
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Sarah Chen</h3>
-                            <p class="team-role">Lead Developer</p>
-                            <p class="team-bio">Full-stack developer extraordinaire specializing in mobile apps and
-                                enterprise solutions. Sarah transforms complex ideas into elegant, functional
-                                applications.
-                            </p>
-                        </div>
+                        <div class="member-name">Alex Smith</div>
+                        <div class="member-role">Chief Technology Officer</div>
+                        <div class="member-bio">Expert in emerging technologies with a passion for innovation and
+                            technical excellence.</div>
                     </div>
-
                     <div class="team-member">
-                        <div class="team-photo">
-                            <img
-                                src="images/profile3.jpg">
+                        <div class="member-avatar">
+                            <img src="images/profile3.jpg">
                         </div>
-                        <div class="team-info">
-                            <h3 class="team-name">Michael Rodriguez</h3>
-                            <p class="team-role">Game Designer</p>
-                            <p class="team-bio">Creative mastermind behind our award-winning 2D games. Michael combines
-                                artistic vision with technical expertise to create engaging gaming experiences.</p>
+                        <div class="member-name">Alex Smith</div>
+
+                        <div class="member-role">Head of Development</div>
+                        <div class="member-bio">Full-stack developer and team leader with expertise in modern web and
+                            mobile technologies.</div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="team-slide">
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="images/profile.png">
                         </div>
+                        <div class="member-name">Alex Smith</div>
+
+                        <div class="member-role">UX/UI Designer</div>
+                        <div class="member-bio">Creative designer focused on creating intuitive and engaging user
+                            experiences.</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="images/profile2.jpg">
+                        </div>
+                        <div class="member-name">Alex Smith</div>
+
+                        <div class="member-role">Data Scientist</div>
+                        <div class="member-bio">AI and machine learning specialist with extensive experience in data
+                            analytics and insights.</div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">
+                            <img src="images/profile3.jpg">
+                        </div>
+                        <div class="member-name">Lisa Thompson</div>
+                        <div class="member-role">Project Manager</div>
+                        <div class="member-bio">Agile project management expert ensuring successful delivery of complex
+                            technology projects.</div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Navigation Arrows -->
+            <button class="nav-arrow prev" onclick="prevSlide()">‹</button>
+            <button class="nav-arrow next" onclick="nextSlide()">›</button>
+        </div>
     </section>
 
     <!-- Portfolio Section -->
@@ -3212,7 +3347,6 @@
                 </p>
                 <button class="view-more-btn">View More</button>
             </div>
-
         </section>
     </section>
 
@@ -3316,7 +3450,6 @@
         </div>
     </section>
 
-
     <!-- Contact Section -->
     <section id="contact">
         <div class="header">
@@ -3380,25 +3513,37 @@
                         <form id="contactForm">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name">
+                                <div class="error-message" id="nameError">Please enter your full name.</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email">
+                                <div class="error-message" id="emailError">Please enter a valid email address.</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Message *</label>
                                 <textarea id="message" name="message"
-                                    placeholder="Tell us about your project or inquiry..." required></textarea>
+                                    placeholder="Tell us about your project or inquiry..."></textarea>
+                                <div class="error-message" id="messageError">Please enter your message.</div>
                             </div>
 
                             <div class="button-group">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <button type="button" class="btn btn-secondary" onclick="resetForm()">Cancel</button>
+                                <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+
+                <!-- Success Modal -->
+                <div class="modal" id="successModal">
+                    <div class="modal-content">
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for your message! We will get back to you within 24 hours.</p>
+                        <button class="modal-btn" onclick="closeModal()">Close</button>
                     </div>
                 </div>
 
@@ -3484,13 +3629,14 @@
                 // Simulate login/loading process
                 setTimeout(() => {
                     const loadingOverlay = document.getElementById('loadingOverlay');
-                    loadingOverlay.classList.add('hidden');
-
-                    // Remove the loading overlay from DOM after transition
-                    setTimeout(() => {
-                        loadingOverlay.remove();
-                    }, 500);
-                }, 3000); // 3 seconds loading time - adjust as needed
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.add('hidden');
+                        // Remove the loading overlay from DOM after transition
+                        setTimeout(() => {
+                            loadingOverlay.remove();
+                        }, 500);
+                    }
+                }, 1000); // 3 seconds loading time - adjust as needed
             });
 
             // Intersection Observer for animations
@@ -3511,14 +3657,18 @@
             }, observerOptions);
 
             document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('.project-card').forEach((card) => {
-                    observer.observe(card);
-                });
+                const projectCards = document.querySelectorAll('.project-card');
+                if (projectCards.length > 0) {
+                    projectCards.forEach((card) => {
+                        observer.observe(card);
+                    });
+                }
             });
 
             // Add hover sound effect simulation
             document.addEventListener('DOMContentLoaded', () => {
-                document.querySelectorAll('.project-card').forEach(card => {
+                const projectCards = document.querySelectorAll('.project-card');
+                projectCards.forEach(card => {
                     card.addEventListener('mouseenter', () => {
                         card.style.transform = 'translateY(-10px) scale(1.02)';
                     });
@@ -3543,199 +3693,449 @@
             });
 
             // Back to Top Button Functionality
-            const backToTopButton = document.getElementById('backToTop');
-
-            // Show/hide button based on scroll position
-            const toggleBackToTopButton = () => {
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            };
-
-            // Smooth scroll to top
-            const scrollToTop = () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            };
-
-            // Event listeners for back to top
-            window.addEventListener('scroll', toggleBackToTopButton);
-            backToTopButton.addEventListener('click', scrollToTop);
-
-            // Initialize back to top button state
             document.addEventListener('DOMContentLoaded', () => {
-                toggleBackToTopButton();
-            });
+                const backToTopButton = document.getElementById('backToTop');
+                if (backToTopButton) {
+                    // Show/hide button based on scroll position
+                    const toggleBackToTopButton = () => {
+                        if (window.scrollY > 300) {
+                            backToTopButton.classList.add('visible');
+                        } else {
+                            backToTopButton.classList.remove('visible');
+                        }
+                    };
 
-            document.getElementById('contactForm').addEventListener('submit', function (e) {
-                e.preventDefault();
+                    // Smooth scroll to top
+                    const scrollToTop = () => {
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    };
 
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
+                    // Event listeners for back to top
+                    window.addEventListener('scroll', toggleBackToTopButton);
+                    backToTopButton.addEventListener('click', scrollToTop);
 
-                if (name && email && message) {
-                    alert('Thank you for your message! We will get back to you within 24 hours.');
-                    resetForm();
-                } else {
-                    alert('Please fill in all required fields.');
+                    // Initialize back to top button state
+                    toggleBackToTopButton();
                 }
             });
 
-            function resetForm() {
-                document.getElementById('contactForm').reset();
+            // Contact Form Handler
+            // Contact Form Handler with Enhanced Validation
+            document.addEventListener('DOMContentLoaded', () => {
+                const contactForm = document.getElementById('contactForm');
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+                const cancelBtn = document.getElementById('cancelBtn');
+
+                // Email validation regex
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // Only clear validation on input AFTER form has been submitted once
+                let formSubmitted = false;
+                [nameInput, emailInput, messageInput].forEach(input => {
+                    input.addEventListener('input', () => {
+                        if (formSubmitted) {
+                            clearFieldError(input);
+                        }
+                    });
+                });
+
+                // Cancel button functionality
+                cancelBtn.addEventListener('click', () => {
+                    resetContactForm();
+                });
+
+                // Form submission handler
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Mark that form has been submitted
+                    formSubmitted = true;
+
+                    // Reset all previous errors
+                    clearAllErrors();
+
+                    let isValid = true;
+
+                    // Validate name
+                    if (!nameInput.value.trim()) {
+                        showFieldError(nameInput, 'nameError', 'Please enter your full name.');
+                        isValid = false;
+                    }
+
+                    // Validate email
+                    if (!emailInput.value.trim()) {
+                        showFieldError(emailInput, 'emailError', 'Please enter your email address.');
+                        isValid = false;
+                    } else if (!emailRegex.test(emailInput.value.trim())) {
+                        showFieldError(emailInput, 'emailError', 'Please enter a valid email address.');
+                        isValid = false;
+                    }
+
+                    // Validate message
+                    if (!messageInput.value.trim()) {
+                        showFieldError(messageInput, 'messageError', 'Please enter your message.');
+                        isValid = false;
+                    }
+
+                    // If all fields are valid, show success
+                    if (isValid) {
+                        showSuccessModal();
+                        resetContactForm();
+                    }
+                });
+
+                function showFieldError(field, errorId, message) {
+                    const formGroup = field.parentElement;
+                    const errorElement = document.getElementById(errorId);
+
+                    formGroup.classList.add('error');
+                    errorElement.textContent = message;
+                    errorElement.classList.add('show');
+
+                    // Focus the first invalid field
+                    if (!document.querySelector('.form-group.error input:focus, .form-group.error textarea:focus')) {
+                        field.focus();
+                    }
+                }
+
+                function clearFieldError(field) {
+                    const formGroup = field.parentElement;
+                    const errorElement = formGroup.querySelector('.error-message');
+
+                    formGroup.classList.remove('error');
+                    errorElement.classList.remove('show');
+                }
+
+                function clearAllErrors() {
+                    document.querySelectorAll('.form-group').forEach(group => {
+                        group.classList.remove('error');
+                    });
+                    document.querySelectorAll('.error-message').forEach(error => {
+                        error.classList.remove('show');
+                    });
+                }
+
+                function showSuccessModal() {
+                    document.getElementById('successModal').style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function resetContactForm() {
+                    contactForm.reset();
+                    clearAllErrors();
+                    formSubmitted = false; // Reset submission flag
+                }
+
+                // Make resetContactForm available globally for the cancel button
+                window.resetContactForm = resetContactForm;
+            });
+
+            // Modal close function
+            function closeModal() {
+                document.getElementById('successModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+                // Clear all form fields and reset validation state
+                resetContactForm();
             }
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                const modal = document.getElementById('successModal');
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
 
             // Add smooth scroll behavior for better UX
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-
-            // Add hover effects for contact methods
-            document.querySelectorAll('.contact-method').forEach(method => {
-                method.addEventListener('mouseenter', function () {
-                    this.style.borderLeftWidth = '6px';
-                });
-
-                method.addEventListener('mouseleave', function () {
-                    this.style.borderLeftWidth = '4px';
-                });
-            });
-
-            let currentSlide = 0;
-            const slides = document.querySelectorAll('.carousel-slide');
-            const dots = document.querySelectorAll('.nav-dot');
-            const totalSlides = slides.length;
-
-            // Auto-slide functionality
-            let slideInterval = setInterval(nextSlide, 5000);
-
-            function showSlide(index) {
-                // Remove active class from all slides and dots
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-
-                // Add active class to current slide and dot
-                slides[index].classList.add('active');
-                dots[index].classList.add('active');
-            }
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
-            }
-
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                showSlide(currentSlide);
-            }
-
-            function changeSlide(direction) {
-                clearInterval(slideInterval);
-
-                if (direction === 1) {
-                    nextSlide();
-                } else {
-                    prevSlide();
-                }
-
-                // Restart auto-slide
-                slideInterval = setInterval(nextSlide, 5000);
-            }
-
-            // Dot navigation
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    currentSlide = index;
-                    showSlide(currentSlide);
-                    slideInterval = setInterval(nextSlide, 5000);
-                });
-            });
-
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                const navbar = document.getElementById('navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetId = link.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
                             behavior: 'smooth'
                         });
                     }
                 });
             });
 
-            // Pause auto-slide on hover
-            const carouselContainer = document.querySelector('.carousel-container');
-            carouselContainer.addEventListener('mouseenter', () => {
-                clearInterval(slideInterval);
-            });
+            // Add hover effects for contact methods
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.contact-method').forEach(method => {
+                    method.addEventListener('mouseenter', function () {
+                        this.style.borderLeftWidth = '6px';
+                    });
 
-            carouselContainer.addEventListener('mouseleave', () => {
-                slideInterval = setInterval(nextSlide, 5000);
-            });
-
-            const navLinks = document.querySelectorAll('.nav-link');
-            const projectCards = document.querySelectorAll('.project-card');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-
-                    // Remove active class from all links
-                    navLinks.forEach(l => l.classList.remove('active'));
-
-                    // Add active class to clicked link
-                    link.classList.add('active');
-
-                    // Add a subtle animation to project cards
-                    projectCards.forEach((card, index) => {
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 100);
+                    method.addEventListener('mouseleave', function () {
+                        this.style.borderLeftWidth = '4px';
                     });
                 });
             });
 
-            // Add parallax effect to project cards
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.5;
+            // Main Hero Carousel (Enhanced with better auto-slide)
+            class HeroCarousel {
+                constructor() {
+                    this.currentSlide = 0;
+                    this.slides = document.querySelectorAll('.carousel-slide');
+                    this.dots = document.querySelectorAll('.hero-carousel .nav-dot');
+                    this.totalSlides = this.slides.length;
+                    this.slideInterval = null;
+                    this.autoSlideDelay = 2000; // 2 seconds between slides
 
-                projectCards.forEach((card, index) => {
-                    const cardTop = card.offsetTop;
-                    const cardHeight = card.offsetHeight;
-                    const windowHeight = window.innerHeight;
-
-                    if (scrolled + windowHeight > cardTop && scrolled < cardTop + cardHeight) {
-                        card.style.transform = `translateY(${rate * 0.1}px)`;
+                    if (this.slides.length > 0) {
+                        this.init();
                     }
+                }
+
+                init() {
+                    this.showSlide(0); // Show first slide immediately
+                    this.startAutoSlide();
+                    this.setupEventListeners();
+                }
+
+                setupEventListeners() {
+                    // Dot navigation
+                    this.dots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            this.goToSlide(index);
+                            this.resetAutoSlide();
+                        });
+                    });
+
+                    // Pause auto-slide on hover
+                    const carouselContainer = document.querySelector('.carousel-container');
+                    if (carouselContainer) {
+                        carouselContainer.addEventListener('mouseenter', () => {
+                            this.pauseAutoSlide();
+                        });
+
+                        carouselContainer.addEventListener('mouseleave', () => {
+                            this.startAutoSlide();
+                        });
+                    }
+
+                    // Keyboard navigation
+                    document.addEventListener('keydown', (e) => {
+                        if (e.target.closest('.hero-carousel')) {
+                            if (e.key === 'ArrowLeft') {
+                                this.prevSlide();
+                                this.resetAutoSlide();
+                            } else if (e.key === 'ArrowRight') {
+                                this.nextSlide();
+                                this.resetAutoSlide();
+                            }
+                        }
+                    });
+                }
+
+                showSlide(index) {
+                    // Remove active class from all slides and dots
+                    this.slides.forEach(slide => slide.classList.remove('active'));
+                    this.dots.forEach(dot => dot.classList.remove('active'));
+
+                    // Add active class to current slide and dot
+                    this.slides[index].classList.add('active');
+                    if (this.dots[index]) {
+                        this.dots[index].classList.add('active');
+                    }
+                }
+
+                goToSlide(index) {
+                    this.currentSlide = index;
+                    this.showSlide(this.currentSlide);
+                }
+
+                nextSlide() {
+                    this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                    this.showSlide(this.currentSlide);
+                }
+
+                prevSlide() {
+                    this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                    this.showSlide(this.currentSlide);
+                }
+
+                startAutoSlide() {
+                    this.slideInterval = setInterval(() => {
+                        this.nextSlide();
+                    }, this.autoSlideDelay);
+                }
+
+                pauseAutoSlide() {
+                    if (this.slideInterval) {
+                        clearInterval(this.slideInterval);
+                        this.slideInterval = null;
+                    }
+                }
+
+                resetAutoSlide() {
+                    this.pauseAutoSlide();
+                    this.startAutoSlide();
+                }
+            }
+
+            // Team Carousel Class (Manual Navigation Only)
+            class TeamCarousel {
+                constructor() {
+                    this.currentSlide = 0;
+                    this.totalSlides = 2;
+                    this.slides = document.getElementById('teamSlides');
+                    this.prevBtn = document.getElementById('teamPrevBtn');
+                    this.nextBtn = document.getElementById('teamNextBtn');
+                    this.indicators = document.querySelectorAll('.team-carousel .indicator');
+
+                    if (this.slides) {
+                        this.init();
+                    }
+                }
+
+                init() {
+                    this.updateSlidePosition();
+                    this.setupEventListeners();
+                }
+
+                setupEventListeners() {
+                    // Navigation buttons
+                    if (this.prevBtn) {
+                        this.prevBtn.addEventListener('click', () => {
+                            this.previousSlide();
+                        });
+                    }
+                    if (this.nextBtn) {
+                        this.nextBtn.addEventListener('click', () => {
+                            this.nextSlide();
+                        });
+                    }
+
+                    // Indicator dots
+                    this.indicators.forEach((indicator, index) => {
+                        indicator.addEventListener('click', () => {
+                            this.goToSlide(index);
+                        });
+                    });
+
+                    // Keyboard navigation
+                    document.addEventListener('keydown', (e) => {
+                        if (e.target.closest('.team-carousel')) {
+                            if (e.key === 'ArrowLeft') {
+                                this.previousSlide();
+                            } else if (e.key === 'ArrowRight') {
+                                this.nextSlide();
+                            }
+                        }
+                    });
+
+                    // Touch/swipe support
+                    this.setupTouchEvents();
+                }
+
+                setupTouchEvents() {
+                    let startX = 0;
+                    let currentX = 0;
+                    let isDragging = false;
+
+                    const carousel = document.querySelector('.team-carousel');
+                    if (!carousel) return;
+
+                    carousel.addEventListener('touchstart', (e) => {
+                        startX = e.touches[0].clientX;
+                        isDragging = true;
+                    });
+
+                    carousel.addEventListener('touchmove', (e) => {
+                        if (!isDragging) return;
+                        currentX = e.touches[0].clientX;
+                    });
+
+                    carousel.addEventListener('touchend', (e) => {
+                        if (!isDragging) return;
+                        isDragging = false;
+
+                        const diffX = startX - currentX;
+                        const threshold = 50;
+
+                        if (Math.abs(diffX) > threshold) {
+                            if (diffX > 0) {
+                                this.nextSlide();
+                            } else {
+                                this.previousSlide();
+                            }
+                        }
+                    });
+                }
+
+                updateSlidePosition() {
+                    const translateX = -this.currentSlide * 50; // Each slide is 50% width
+                    this.slides.style.transform = `translateX(${translateX}%)`;
+
+                    // Update navigation buttons - enable both arrows for looping
+                    if (this.prevBtn) {
+                        this.prevBtn.disabled = false;
+                    }
+                    if (this.nextBtn) {
+                        this.nextBtn.disabled = false;
+                    }
+
+                    // Update indicators
+                    this.indicators.forEach((indicator, index) => {
+                        indicator.classList.toggle('active', index === this.currentSlide);
+                    });
+                }
+
+                nextSlide() {
+                    if (this.currentSlide < this.totalSlides - 1) {
+                        this.currentSlide++;
+                    } else {
+                        this.currentSlide = 0; // Loop back to first slide
+                    }
+                    this.updateSlidePosition();
+                }
+
+                previousSlide() {
+                    if (this.currentSlide > 0) {
+                        this.currentSlide--;
+                    } else {
+                        this.currentSlide = this.totalSlides - 1; // Loop to last slide
+                    }
+                    this.updateSlidePosition();
+                }
+
+                goToSlide(slideIndex) {
+                    this.currentSlide = slideIndex;
+                    this.updateSlidePosition();
+                }
+            }
+            // Navbar scroll effect
+            window.addEventListener('scroll', () => {
+                const navbar = document.getElementById('navbar');
+                if (navbar) {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
                 });
             });
 
@@ -3746,50 +4146,58 @@
                 const mobileOverlay = document.getElementById('mobileOverlay');
                 const navLinks = document.querySelectorAll('.nav-link');
 
-                // Toggle mobile menu
-                function toggleMobileMenu() {
-                    mobileToggle.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                    mobileOverlay.classList.toggle('active');
+                if (mobileToggle && navMenu) {
+                    // Toggle mobile menu
+                    function toggleMobileMenu() {
+                        mobileToggle.classList.toggle('active');
+                        navMenu.classList.toggle('active');
+                        if (mobileOverlay) {
+                            mobileOverlay.classList.toggle('active');
+                        }
 
-                    // Prevent body scroll when menu is open
-                    if (navMenu.classList.contains('active')) {
-                        document.body.style.overflow = 'hidden';
-                    } else {
+                        // Prevent body scroll when menu is open
+                        if (navMenu.classList.contains('active')) {
+                            document.body.style.overflow = 'hidden';
+                        } else {
+                            document.body.style.overflow = '';
+                        }
+                    }
+
+                    // Close mobile menu
+                    function closeMobileMenu() {
+                        mobileToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        if (mobileOverlay) {
+                            mobileOverlay.classList.remove('active');
+                        }
                         document.body.style.overflow = '';
                     }
-                }
 
-                // Close mobile menu
-                function closeMobileMenu() {
-                    mobileToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    mobileOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-
-                // Event listeners
-                mobileToggle.addEventListener('click', toggleMobileMenu);
-                mobileOverlay.addEventListener('click', closeMobileMenu);
-
-                // Close menu when clicking on nav links
-                navLinks.forEach(link => {
-                    link.addEventListener('click', closeMobileMenu);
-                });
-
-                // Close menu on escape key
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                        closeMobileMenu();
+                    // Event listeners
+                    mobileToggle.addEventListener('click', toggleMobileMenu);
+                    if (mobileOverlay) {
+                        mobileOverlay.addEventListener('click', closeMobileMenu);
                     }
-                });
 
-                // Close menu on window resize if screen becomes larger
-                window.addEventListener('resize', function () {
-                    if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
-                        closeMobileMenu();
-                    }
-                });
+                    // Close menu when clicking on nav links
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', closeMobileMenu);
+                    });
+
+                    // Close menu on escape key
+                    document.addEventListener('keydown', function (e) {
+                        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                            closeMobileMenu();
+                        }
+                    });
+
+                    // Close menu on window resize if screen becomes larger
+                    window.addEventListener('resize', function () {
+                        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                            closeMobileMenu();
+                        }
+                    });
+                }
             });
 
             // Project data with full details
@@ -3884,35 +4292,40 @@
                 const project = projectData[projectId];
                 const modalContent = document.getElementById('modalContent');
 
-                modalContent.innerHTML = `
-                <div class="modal-header">
-                    <div class="modal-project-info">
-                        <h2>${project.title}</h2>
-                        <div class="modal-client-name">${project.client}</div>
-                    </div>
+                if (modalContent && project) {
+                    modalContent.innerHTML = `
+            <div class="modal-header">
+                <div class="modal-project-info">
+                    <h2>${project.title}</h2>
+                    <div class="modal-client-name">${project.client}</div>
                 </div>
-                
-                <div class="modal-description">
-                    ${project.description}
+            </div>
+            
+            <div class="modal-description">
+                ${project.description}
+            </div>
+            
+            <div class="modal-section">
+                <h3>Technology Stack</h3>
+                <div class="tech-stack">
+                    ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                 </div>
-                
-                <div class="modal-section">
-                    <h3>Technology Stack</h3>
-                    <div class="tech-stack">
-                        ${project.techStack.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
-                    </div>
-                </div>
-                
-                <div class="modal-section">
-                    <h3>Key Features</h3>
-                    <ul class="features-list">
-                        ${project.features.map(feature => `<li>${feature}</li>`).join('')}
-                    </ul>
-                </div>
-            `;
+            </div>
+            
+            <div class="modal-section">
+                <h3>Key Features</h3>
+                <ul class="features-list">
+                    ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            </div>
+        `;
 
-                document.getElementById('modalOverlay').classList.add('active');
-                document.body.style.overflow = 'hidden';
+                    const modalOverlay = document.getElementById('modalOverlay');
+                    if (modalOverlay) {
+                        modalOverlay.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                }
             }
 
             function closeModal(event) {
@@ -3920,8 +4333,11 @@
                     return;
                 }
 
-                document.getElementById('modalOverlay').classList.remove('active');
-                document.body.style.overflow = 'auto';
+                const modalOverlay = document.getElementById('modalOverlay');
+                if (modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
             }
 
             // Close modal with Escape key
@@ -3939,19 +4355,24 @@
                 });
             });
 
+            // Testimonial Slideshow Class (Enhanced)
             class TestimonialSlideshow {
                 constructor() {
                     this.testimonials = document.querySelectorAll('.testimonial');
-                    this.navDots = document.querySelectorAll('.nav-dot');
-                    this.prevBtn = document.getElementById('prevBtn');
-                    this.nextBtn = document.getElementById('nextBtn');
+                    this.navDots = document.querySelectorAll('.testimonial-container .nav-dot');
+                    this.prevBtn = document.getElementById('testimonialPrevBtn');
+                    this.nextBtn = document.getElementById('testimonialNextBtn');
                     this.currentSlide = 0;
                     this.autoSlideInterval = null;
+                    this.autoSlideDelay = 1000; // 6 seconds between testimonials
 
-                    this.init();
+                    if (this.testimonials.length > 0) {
+                        this.init();
+                    }
                 }
 
                 init() {
+                    this.goToSlide(0); // Show first testimonial immediately
                     this.setupEventListeners();
                     this.startAutoSlide();
                 }
@@ -3966,29 +4387,37 @@
                     });
 
                     // Arrow navigation
-                    this.prevBtn.addEventListener('click', () => {
-                        this.previousSlide();
-                        this.resetAutoSlide();
-                    });
+                    if (this.prevBtn) {
+                        this.prevBtn.addEventListener('click', () => {
+                            this.previousSlide();
+                            this.resetAutoSlide();
+                        });
+                    }
 
-                    this.nextBtn.addEventListener('click', () => {
-                        this.nextSlide();
-                        this.resetAutoSlide();
-                    });
+                    if (this.nextBtn) {
+                        this.nextBtn.addEventListener('click', () => {
+                            this.nextSlide();
+                            this.resetAutoSlide();
+                        });
+                    }
 
                     // Pause auto-slide on hover
                     const container = document.querySelector('.testimonial-container');
-                    container.addEventListener('mouseenter', () => this.pauseAutoSlide());
-                    container.addEventListener('mouseleave', () => this.startAutoSlide());
+                    if (container) {
+                        container.addEventListener('mouseenter', () => this.pauseAutoSlide());
+                        container.addEventListener('mouseleave', () => this.startAutoSlide());
+                    }
 
                     // Keyboard navigation
                     document.addEventListener('keydown', (e) => {
-                        if (e.key === 'ArrowLeft') {
-                            this.previousSlide();
-                            this.resetAutoSlide();
-                        } else if (e.key === 'ArrowRight') {
-                            this.nextSlide();
-                            this.resetAutoSlide();
+                        if (e.target.closest('.testimonial-container')) {
+                            if (e.key === 'ArrowLeft') {
+                                this.previousSlide();
+                                this.resetAutoSlide();
+                            } else if (e.key === 'ArrowRight') {
+                                this.nextSlide();
+                                this.resetAutoSlide();
+                            }
                         }
                     });
                 }
@@ -4017,7 +4446,7 @@
                 startAutoSlide() {
                     this.autoSlideInterval = setInterval(() => {
                         this.nextSlide();
-                    }, 5000); // Change slide every 5 seconds
+                    }, this.autoSlideDelay);
                 }
 
                 pauseAutoSlide() {
@@ -4033,10 +4462,137 @@
                 }
             }
 
-            // Initialize the slideshow when the page loads
+            // Enhanced project card animations and parallax effect
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const projectCards = document.querySelectorAll('.project-card');
+
+                projectCards.forEach((card, index) => {
+                    const cardTop = card.offsetTop;
+                    const cardHeight = card.offsetHeight;
+                    const windowHeight = window.innerHeight;
+
+                    if (scrolled + windowHeight > cardTop && scrolled < cardTop + cardHeight) {
+                        const rate = scrolled * -0.5;
+                        card.style.transform = `translateY(${rate * 0.1}px)`;
+                    }
+                });
+            });
+
+            // Navigation link effects
             document.addEventListener('DOMContentLoaded', () => {
+                const navLinks = document.querySelectorAll('.nav-link');
+                const projectCards = document.querySelectorAll('.project-card');
+
+                navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // Remove active class from all links
+                        navLinks.forEach(l => l.classList.remove('active'));
+
+                        // Add active class to clicked link
+                        link.classList.add('active');
+
+                        // Add a subtle animation to project cards
+                        projectCards.forEach((card, index) => {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        });
+                    });
+                });
+            });
+
+            // Initialize all components when DOM is loaded
+            document.addEventListener('DOMContentLoaded', () => {
+                // Initialize Hero Carousel
+                new HeroCarousel();
+
+                // Initialize Team Carousel
+                new TeamCarousel();
+
+                // Initialize Testimonial Slideshow
                 new TestimonialSlideshow();
             });
+
+
+            // Team Slider JavaScript
+            let currentSlide = 0;
+            const totalSlides = 2;
+
+            function nextSlide() {
+                const slider = document.getElementById('teamSlider');
+
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                } else {
+                    currentSlide = 0; // Loop back to first slide
+                }
+
+                updateSlider(slider);
+            }
+
+            function prevSlide() {
+                const slider = document.getElementById('teamSlider');
+
+                if (currentSlide > 0) {
+                    currentSlide--;
+                } else {
+                    currentSlide = totalSlides - 1; // Loop to last slide
+                }
+
+                updateSlider(slider);
+            }
+
+            function updateSlider(slider) {
+                const translateX = -currentSlide * 50; // 50% for each slide
+                slider.style.transform = `translateX(${translateX}%)`;
+            }
+
+            // Optional: Auto-slide functionality (uncomment if desired)
+            /*
+            setInterval(() => {
+                nextSlide();
+            }, 5000); // Auto-advance every 5 seconds
+            */
+
+            // Optional: Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                } else if (e.key === 'ArrowRight') {
+                    nextSlide();
+                }
+            });
+
+            // Optional: Touch/swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+
+            document.getElementById('teamSlider').addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+
+            document.getElementById('teamSlider').addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        nextSlide(); // Swipe left, go to next slide
+                    } else {
+                        prevSlide(); // Swipe right, go to previous slide
+                    }
+                }
+            }
         </script>
 </body>
 
