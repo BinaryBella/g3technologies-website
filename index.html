@@ -1769,40 +1769,116 @@
                 this.currentIndex = 0;
                 this.itemsPerView = this.getItemsPerView();
                 this.maxIndex = Math.max(0, this.items.length - this.itemsPerView);
+                this.isMobile = this.checkMobile();
 
                 this.init();
-                this.updateButtons();
-                this.createIndicators();
+
+                // Only initialize desktop timeline functionality if not on mobile
+                if (!this.isMobile) {
+                    this.updateButtons();
+                    this.createIndicators();
+                } else {
+                    this.disableMobileTimeline();
+                }
 
                 window.addEventListener('resize', () => {
-                    this.itemsPerView = this.getItemsPerView();
-                    this.maxIndex = Math.max(0, this.items.length - this.itemsPerView);
-                    this.updatePosition();
-                    this.updateButtons();
+                    const wasMobile = this.isMobile;
+                    this.isMobile = this.checkMobile();
+
+                    // If switching between mobile and desktop
+                    if (wasMobile !== this.isMobile) {
+                        if (this.isMobile) {
+                            this.disableMobileTimeline();
+                        } else {
+                            this.enableDesktopTimeline();
+                        }
+                    }
+
+                    // Only update desktop functionality if not on mobile
+                    if (!this.isMobile) {
+                        this.itemsPerView = this.getItemsPerView();
+                        this.maxIndex = Math.max(0, this.items.length - this.itemsPerView);
+                        this.updatePosition();
+                        this.updateButtons();
+                    }
                 });
             }
 
+            checkMobile() {
+                return window.innerWidth <= 768;
+            }
+
+            disableMobileTimeline() {
+                // Reset transform for mobile vertical layout
+                this.track.style.transform = 'none';
+
+                // Hide navigation buttons
+                const prevBtn = document.querySelector('.timeline-nav.prev');
+                const nextBtn = document.querySelector('.timeline-nav.next');
+                if (prevBtn) prevBtn.style.display = 'none';
+                if (nextBtn) nextBtn.style.display = 'none';
+
+                // Hide indicators
+                if (this.indicators) {
+                    this.indicators.style.display = 'none';
+                }
+
+                // Remove touch listeners for horizontal sliding
+                this.removeTouchListeners();
+            }
+
+            enableDesktopTimeline() {
+                // Show navigation buttons
+                const prevBtn = document.querySelector('.timeline-nav.prev');
+                const nextBtn = document.querySelector('.timeline-nav.next');
+                if (prevBtn) prevBtn.style.display = 'flex';
+                if (nextBtn) nextBtn.style.display = 'flex';
+
+                // Show indicators
+                if (this.indicators) {
+                    this.indicators.style.display = 'flex';
+                }
+
+                // Re-initialize desktop functionality
+                this.itemsPerView = this.getItemsPerView();
+                this.maxIndex = Math.max(0, this.items.length - this.itemsPerView);
+                this.currentIndex = 0;
+                this.updatePosition();
+                this.updateButtons();
+                this.createIndicators();
+
+                // Re-add touch listeners for desktop touch devices
+                this.addTouchListeners();
+            }
+
             init() {
-                // Add touch support for mobile
-                let startX = 0;
-                let isDragging = false;
+                // Only add touch listeners if not on mobile
+                if (!this.isMobile) {
+                    this.addTouchListeners();
+                }
+            }
 
-                this.track.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                    isDragging = true;
-                });
+            addTouchListeners() {
+                // Add touch support for desktop touch devices only
+                this.startX = 0;
+                this.isDragging = false;
 
-                this.track.addEventListener('touchmove', (e) => {
-                    if (!isDragging) return;
+                this.touchStartHandler = (e) => {
+                    this.startX = e.touches[0].clientX;
+                    this.isDragging = true;
+                };
+
+                this.touchMoveHandler = (e) => {
+                    if (!this.isDragging) return;
                     e.preventDefault();
-                });
+                };
 
-                this.track.addEventListener('touchend', (e) => {
-                    if (!isDragging) return;
-                    isDragging = false;
+                this.touchEndHandler = (e) => {
+                    if (!this.isDragging) return;
+                    this.isDragging = false;
 
                     const endX = e.changedTouches[0].clientX;
-                    const diff = startX - endX;
+                    const diff = this.startX - endX;
 
                     if (Math.abs(diff) > 50) {
                         if (diff > 0) {
@@ -1811,16 +1887,34 @@
                             this.slide(-1);
                         }
                     }
-                });
+                };
+
+                this.track.addEventListener('touchstart', this.touchStartHandler);
+                this.track.addEventListener('touchmove', this.touchMoveHandler);
+                this.track.addEventListener('touchend', this.touchEndHandler);
+            }
+
+            removeTouchListeners() {
+                if (this.touchStartHandler) {
+                    this.track.removeEventListener('touchstart', this.touchStartHandler);
+                    this.track.removeEventListener('touchmove', this.touchMoveHandler);
+                    this.track.removeEventListener('touchend', this.touchEndHandler);
+                }
             }
 
             getItemsPerView() {
+                // Only calculate for desktop
+                if (this.isMobile) return 1;
+
                 const containerWidth = this.track.parentElement.clientWidth;
                 const itemWidth = 350 + 60; // item width + gap
                 return Math.floor(containerWidth / itemWidth) || 1;
             }
 
             slide(direction) {
+                // Prevent sliding on mobile
+                if (this.isMobile) return;
+
                 this.currentIndex += direction;
                 this.currentIndex = Math.max(0, Math.min(this.currentIndex, this.maxIndex));
                 this.updatePosition();
@@ -1829,20 +1923,34 @@
             }
 
             updatePosition() {
+                // Only update position for desktop
+                if (this.isMobile) {
+                    this.track.style.transform = 'none';
+                    return;
+                }
+
                 const itemWidth = 350 + 60; // item width + gap
                 const translateX = -this.currentIndex * itemWidth;
                 this.track.style.transform = `translateX(${translateX}px)`;
             }
 
             updateButtons() {
+                // Only update buttons for desktop
+                if (this.isMobile) return;
+
                 const prevBtn = document.querySelector('.timeline-nav.prev');
                 const nextBtn = document.querySelector('.timeline-nav.next');
 
-                prevBtn.disabled = this.currentIndex === 0;
-                nextBtn.disabled = this.currentIndex === this.maxIndex;
+                if (prevBtn && nextBtn) {
+                    prevBtn.disabled = this.currentIndex === 0;
+                    nextBtn.disabled = this.currentIndex === this.maxIndex;
+                }
             }
 
             createIndicators() {
+                // Only create indicators for desktop
+                if (this.isMobile || !this.indicators) return;
+
                 this.indicators.innerHTML = '';
                 const totalSlides = this.maxIndex + 1;
 
@@ -1856,6 +1964,9 @@
             }
 
             updateIndicators() {
+                // Only update indicators for desktop
+                if (this.isMobile) return;
+
                 const indicators = document.querySelectorAll('.indicator');
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === this.currentIndex);
@@ -1863,6 +1974,9 @@
             }
 
             goToSlide(index) {
+                // Prevent slide navigation on mobile
+                if (this.isMobile) return;
+
                 this.currentIndex = index;
                 this.updatePosition();
                 this.updateButtons();
@@ -1872,7 +1986,10 @@
 
         // Global function for button clicks
         function slideTimeline(direction) {
-            timeline.slide(direction);
+            // Only allow sliding on desktop
+            if (timeline && !timeline.isMobile) {
+                timeline.slide(direction);
+            }
         }
 
         // Initialize timeline when DOM is loaded
