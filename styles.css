@@ -3993,3 +3993,29 @@ body.menu-open {
         margin-top: 20px;
     }
 }
+
+.footer-bottom {
+    padding-top: 30px;
+    text-align: center;
+    background-color: #000;
+}
+
+.footer-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #f9ae18, #ed1d25);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 15px;
+}
+
+.copyright {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.copyright span {
+    color: #f9ae18;
+    font-weight: 600;
+}
