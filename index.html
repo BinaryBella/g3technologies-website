@@ -8,7 +8,6 @@
 
     <!-- External CSS file -->
     <link rel="stylesheet" href="styles.css" />
-
 </head>
 
 <body>
@@ -161,188 +160,214 @@
             </div>
         </section>
 
-
         <section class="section-history">
-        <div class="container">
-            <h2 class="section-title">Our History</h2>
-            <p class="section-subtitle">Discover the milestones that have shaped our journey from a small startup to an industry leader</p>
+            <div class="container">
+                <h2 class="section-title">Our History</h2>
+                <p class="section-subtitle">Discover the milestones that have shaped our journey from a small startup to
+                    an industry leader</p>
 
-            <div class="timeline-container">
-                <div class="timeline-navigation">
-                    <button class="nav-button" id="prevBtn" onclick="previousSlide()">‹</button>
-                    <div class="timeline-info">
-                        <span id="slideInfo">Milestones 1-5 of 10</span>
+                <div class="timeline-container">
+                    <div class="timeline-navigation">
+                        <button class="nav-button" id="prevBtn" onclick="previousSlide()">‹</button>
+                        <div class="timeline-info">
+                            <span id="slideInfo">Milestones 1-5 of 10</span>
+                        </div>
+                        <button class="nav-button" id="nextBtn" onclick="nextSlide()">›</button>
                     </div>
-                    <button class="nav-button" id="nextBtn" onclick="nextSlide()">›</button>
-                </div>
 
-                <div class="timeline-wrapper">
-                    <div class="timeline-slider" id="timelineSlider">
-                        <!-- First slide (Milestones 1-5) -->
-                        <div class="timeline-slide">
-                            <div class="timeline-grid">
-                                <!-- Milestone 1 - 2011 Formation -->
-                                <div class="milestone-above">
-                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=150&h=150&fit=crop&crop=face" alt="Formation" class="milestone-image">
-                                    <div class="connector"></div>
-                                </div>
-
-                                <!-- Milestone 2 - 2011 First Client -->
-                                <div class="milestone-above reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2011</div>
-                                        <div class="milestone-title">First Client, First Project</div>
-                                        <div class="milestone-description">We were fortunate to receive our first paid project from the same client we worked with during our university project—our first step into the professional world.</div>
+                    <div class="timeline-wrapper">
+                        <div class="timeline-slider" id="timelineSlider">
+                            <!-- First slide (Milestones 1-5) -->
+                            <div class="timeline-slide">
+                                <div class="timeline-grid">
+                                    <!-- Milestone 1 - 2011 Formation -->
+                                    <div class="milestone-above">
+                                        <img src="images/timeline_1.jpg" alt="Formation" class="milestone-image">
+                                        <div class="connector"></div>
                                     </div>
-                                </div>
 
-                                <!-- Milestone 3 - 2014 Official Step -->
-                                <div class="milestone-above">
-                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="Official Step" class="milestone-image">
-                                    <div class="connector"></div>
-                                </div>
-
-                                <!-- Milestone 4 - 2016 Recognition -->
-                                <div class="milestone-above reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2016</div>
-                                        <div class="milestone-title">First Local Recognition</div>
-                                        <div class="milestone-description">We were honored with the e-Swabhimani Gold Award in two categories—Entertainment & Lifestyle and Inclusion & Empowerment—recognizing our innovative contributions to digital content in Sri Lanka</div>
+                                    <!-- Milestone 2 - 2011 First Client -->
+                                    <div class="milestone-above reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2011</div>
+                                            <div class="milestone-title">First Client, First Project</div>
+                                            <div class="milestone-description">We were fortunate to receive our first
+                                                paid project from the same client we worked with during our university
+                                                project—our first step into the professional world.</div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Milestone 5 - 2018 Expansion -->
-                                <div class="milestone-above">
-                                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=150&h=150&fit=crop&crop=faces" alt="Expansion" class="milestone-image">
-                                    <div class="connector"></div>
-                                </div>
-
-                                <!-- Timeline line with dots -->
-                                <div class="timeline-line">
-                                    <div class="timeline-dot dot-1"></div>
-                                    <div class="timeline-dot dot-2"></div>
-                                    <div class="timeline-dot dot-3"></div>
-                                    <div class="timeline-dot dot-4"></div>
-                                    <div class="timeline-dot dot-5"></div>
-                                </div>
-
-                                <!-- Below timeline content -->
-                                <div class="milestone-below reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2011</div>
-                                        <div class="milestone-title">The Formation</div>
-                                        <div class="milestone-description">As undergraduates, we were tasked with a real-world group project. Our team, designated as Group 3, inspired the name "G3 Team." This project marked the beginning of our journey together.</div>
+                                    <!-- Milestone 3 - 2014 Official Step -->
+                                    <div class="milestone-above">
+                                        <img src="images/timeline_3.jpg" alt="Official Step" class="milestone-image">
+                                        <div class="connector"></div>
                                     </div>
-                                </div>
 
-                                <div class="milestone-below">
-                                    <div class="connector"></div>
-                                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=150&h=150&fit=crop&crop=faces" alt="First Project" class="milestone-image">
-                                </div>
-
-                                <div class="milestone-below reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2014</div>
-                                        <div class="milestone-title">The First Official Step</div>
-                                        <div class="milestone-description">We established our partnership company in Malabe, laying the foundation for what would eventually become G3 Technologies.</div>
+                                    <!-- Milestone 4 - 2016 Recognition -->
+                                    <div class="milestone-above reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2016</div>
+                                            <div class="milestone-title">First Local Recognition</div>
+                                            <div class="milestone-description">We were honored with the e-Swabhimani
+                                                Gold Award in two categories—Entertainment & Lifestyle and Inclusion &
+                                                Empowerment—recognizing our innovative contributions to digital content
+                                                in Sri Lanka</div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="milestone-below">
-                                    <div class="connector"></div>
-                                    <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=150&h=150&fit=crop&crop=center" alt="Award" class="milestone-image">
-                                </div>
+                                    <!-- Milestone 5 - 2018 Expansion -->
+                                    <div class="milestone-above">
+                                        <img src="images/timeline_5.jpg" alt="Expansion" class="milestone-image">
+                                        <div class="connector"></div>
+                                    </div>
 
-                                <div class="milestone-below reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2016</div>
-                                        <div class="milestone-title">International Achievement</div>
-                                        <div class="milestone-description">Our work gained global acclaim when we secured First Place in the Inclusion & Empowerment category at the prestigious mBillionth Awards, celebrating excellence in mobile innovations across South Asia.</div>
+                                    <!-- Timeline line with dots -->
+                                    <div class="timeline-line">
+                                        <div class="timeline-dot dot-1"></div>
+                                        <div class="timeline-dot dot-2"></div>
+                                        <div class="timeline-dot dot-3"></div>
+                                        <div class="timeline-dot dot-4"></div>
+                                        <div class="timeline-dot dot-5"></div>
+                                    </div>
+
+                                    <!-- Below timeline content -->
+                                    <div class="milestone-below reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2011</div>
+                                            <div class="milestone-title">The Formation</div>
+                                            <div class="milestone-description">As undergraduates, we were tasked with a
+                                                real-world group project. Our team, designated as Group 3, inspired the
+                                                name "G3 Team." This project marked the beginning of our journey
+                                                together.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="milestone-below">
+                                        <div class="connector"></div>
+                                        <img src="images/timeline_2.jpg" alt="First Project" class="milestone-image">
+                                    </div>
+
+                                    <div class="milestone-below reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2014</div>
+                                            <div class="milestone-title">The First Official Step</div>
+                                            <div class="milestone-description">We established our partnership company in
+                                                Malabe, laying the foundation for what would eventually become G3
+                                                Technologies.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="milestone-below">
+                                        <div class="connector"></div>
+                                        <img src="images/timeline_4.jpg" alt="Award" class="milestone-image">
+                                    </div>
+
+                                    <div class="milestone-below reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2016</div>
+                                            <div class="milestone-title">International Achievement</div>
+                                            <div class="milestone-description">Our work gained global acclaim when we
+                                                secured First Place in the Inclusion & Empowerment category at the
+                                                prestigious mBillionth Awards, celebrating excellence in mobile
+                                                innovations across South Asia.</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Second slide (Milestones 6-10) -->
-                        <div class="timeline-slide">
-                            <div class="timeline-grid">
-                                <!-- Milestone 6 - 2019 -->
-                                <div class="milestone-above">
-                                    <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=150&h=150&fit=crop&crop=center" alt="Innovation" class="milestone-image">
-                                    <div class="connector"></div>
-                                </div>
-
-                                <!-- Milestone 7 - 2020 -->
-                                <div class="milestone-above reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2018–2019</div>
-                                        <div class="milestone-title">Team Expansion & Global Clients</div>
-                                        <div class="milestone-description">Our growing team enabled us to collaborate with major international clients, including China Harbour and the Port City development projects.</div>
+                            <!-- Second slide (Milestones 6-10) -->
+                            <div class="timeline-slide">
+                                <div class="timeline-grid">
+                                    <!-- Milestone 6 - 2019 -->
+                                    <div class="milestone-above">
+                                        <img src="images/timeline_6.jpg" alt="Innovation" class="milestone-image">
+                                        <div class="connector"></div>
                                     </div>
-                                </div>
 
-                                <!-- Milestone 8 - 2021 -->
-                                <div class="milestone-above">
-                                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=150&h=150&fit=crop&crop=center" alt="Growth" class="milestone-image">
-                                    <div class="connector"></div>
-                                </div>
-
-                                <!-- Milestone 9 - 2022 -->
-                                <div class="milestone-above reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2023</div>
-                                        <div class="milestone-title">Back in Action</div>
-                                        <div class="milestone-description">With renewed energy and a revitalized team, we returned stronger and more focused, ready to rebuild and grow.</div>
+                                    <!-- Milestone 7 - 2020 -->
+                                    <div class="milestone-above reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2018–2019</div>
+                                            <div class="milestone-title">Team Expansion & Global Clients</div>
+                                            <div class="milestone-description">Our growing team enabled us to
+                                                collaborate with major international clients, including China Harbour
+                                                and the Port City development projects.</div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Milestone 10 - 2024 -->
-                                <div class="milestone-above">
-                                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=150&h=150&fit=crop&crop=center" alt="Future" class="milestone-image">
-                                    <div class="connector"></div>
-                                </div>
-
-                                <!-- Timeline line with dots -->
-                                <div class="timeline-line">
-                                    <div class="timeline-dot dot-1"></div>
-                                    <div class="timeline-dot dot-2"></div>
-                                    <div class="timeline-dot dot-3"></div>
-                                    <div class="timeline-dot dot-4"></div>
-                                    <div class="timeline-dot dot-5"></div>
-                                </div>
-
-                                <!-- Below timeline content -->
-                                <div class="milestone-below reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2017</div>
-                                        <div class="milestone-title">Incorporation as G3 Technologies</div>
-                                        <div class="milestone-description">Our partnership company transitioned into an incorporated entity—G3 Technologies (Pvt) Ltd—in June 2017, marking a significant leap in our business journey.</div>
+                                    <!-- Milestone 8 - 2021 -->
+                                    <div class="milestone-above">
+                                        <img src="images/timeline_8.jpg" alt="Growth" class="milestone-image">
+                                        <div class="connector"></div>
                                     </div>
-                                </div>
 
-                                <div class="milestone-below">
-                                    <div class="connector"></div>
-                                    <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=150&h=150&fit=crop&crop=center" alt="Remote Work" class="milestone-image">
-                                </div>
-
-                                <div class="milestone-below reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2020–2022</div>
-                                        <div class="milestone-title">Navigating Crisis</div>
-                                        <div class="milestone-description">The COVID-19 pandemic and Sri Lanka’s economic crisis hit hard. G3 Technologies faced a difficult period, operating in survival mode during nationwide lockdowns and economic instability.</div>
+                                    <!-- Milestone 9 - 2022 -->
+                                    <div class="milestone-above reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2023</div>
+                                            <div class="milestone-title">Back in Action</div>
+                                            <div class="milestone-description">With renewed energy and a revitalized
+                                                team, we returned stronger and more focused, ready to rebuild and grow.
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div class="milestone-below">
-                                    <div class="connector"></div>
-                                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=150&h=150&fit=crop&crop=center" alt="Global" class="milestone-image">
-                                </div>
+                                    <!-- Milestone 10 - 2024 -->
+                                    <div class="milestone-above">
+                                        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=150&h=150&fit=crop&crop=center"
+                                            alt="Future" class="milestone-image">
+                                        <div class="connector"></div>
+                                    </div>
 
-                                <div class="milestone-below reverse">
-                                    <div class="milestone-content">
-                                        <div class="milestone-year">2024 & Beyond</div>
-                                        <div class="milestone-title">A New Chapter Begins</div>
-                                        <div class="milestone-description">With fresh talent and ambitious goals, G3 Technologies is entering a new era—targeting bold achievements and long-term impact in the tech industry</div>
+                                    <!-- Timeline line with dots -->
+                                    <div class="timeline-line">
+                                        <div class="timeline-dot dot-1"></div>
+                                        <div class="timeline-dot dot-2"></div>
+                                        <div class="timeline-dot dot-3"></div>
+                                        <div class="timeline-dot dot-4"></div>
+                                        <div class="timeline-dot dot-5"></div>
+                                    </div>
+
+                                    <!-- Below timeline content -->
+                                    <div class="milestone-below reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2017</div>
+                                            <div class="milestone-title">Incorporation as G3 Technologies</div>
+                                            <div class="milestone-description">Our partnership company transitioned into
+                                                an incorporated entity—G3 Technologies (Pvt) Ltd—in June 2017, marking a
+                                                significant leap in our business journey.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="milestone-below">
+                                        <div class="connector"></div>
+                                        <img src="images/timeline_7.jpg" alt="Remote Work" class="milestone-image">
+                                    </div>
+
+                                    <div class="milestone-below reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2020–2022</div>
+                                            <div class="milestone-title">Navigating Crisis</div>
+                                            <div class="milestone-description">The COVID-19 pandemic and Sri Lanka’s
+                                                economic crisis hit hard. G3 Technologies faced a difficult period,
+                                                operating in survival mode during nationwide lockdowns and economic
+                                                instability.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="milestone-below">
+                                        <div class="connector"></div>
+                                        <img src="images/timeline_9.jpg" alt="Global" class="milestone-image">
+                                    </div>
+
+                                    <div class="milestone-below reverse">
+                                        <div class="milestone-content">
+                                            <div class="milestone-year">2024 & Beyond</div>
+                                            <div class="milestone-title">A New Chapter Begins</div>
+                                            <div class="milestone-description">With fresh talent and ambitious goals, G3
+                                                Technologies is entering a new era—targeting bold achievements and
+                                                long-term impact in the tech industry</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -350,9 +375,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
     </section>
     </section>
 
@@ -2073,7 +2096,7 @@
         });
 
 
-                let currentSlideHistory = 0;
+        let currentSlideHistory = 0;
         const totalSlidesHistory = 2;
 
         function updateSlideInfo() {
@@ -2116,7 +2139,7 @@
         updateSlideInfo();
 
         // Add keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowLeft') {
                 previousSlide();
             } else if (e.key === 'ArrowRight') {
