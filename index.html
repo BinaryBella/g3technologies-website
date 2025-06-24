@@ -508,40 +508,36 @@
         </section>
     </section>
 
-    <!-- Team Section -->
+  <!-- Team Section -->
     <section id="team" class="team-section">
         <h2 class="section-title">Meet Our Team</h2>
-        <div class="team-container">
+        <div class="team-container team-carousel">
             <div class="team-slider" id="teamSlider">
                 <!-- Slide 1 -->
                 <div class="team-slide">
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/profile.png">
+                            <img src="images/profile.png" alt="Alex Smith">
                         </div>
                         <div class="member-name">Alex Smith</div>
                         <div class="member-role">Chief Executive Officer</div>
-                        <div class="member-bio">Visionary leader with 15+ years of experience in technology strategy and
-                            business development.</div>
+                        <div class="member-bio">Visionary leader with 15+ years of experience in technology strategy and business development.</div>
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/profile2.jpg">
+                            <img src="images/profile2.jpg" alt="Sarah Johnson">
                         </div>
-                        <div class="member-name">Alex Smith</div>
+                        <div class="member-name">Sarah Johnson</div>
                         <div class="member-role">Chief Technology Officer</div>
-                        <div class="member-bio">Expert in emerging technologies with a passion for innovation and
-                            technical excellence.</div>
+                        <div class="member-bio">Expert in emerging technologies with a passion for innovation and technical excellence.</div>
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/profile3.jpg">
+                            <img src="images/profile3.jpg" alt="Mike Chen">
                         </div>
-                        <div class="member-name">Alex Smith</div>
-
+                        <div class="member-name">Mike Chen</div>
                         <div class="member-role">Head of Development</div>
-                        <div class="member-bio">Full-stack developer and team leader with expertise in modern web and
-                            mobile technologies.</div>
+                        <div class="member-bio">Full-stack developer and team leader with expertise in modern web and mobile technologies.</div>
                     </div>
                 </div>
 
@@ -549,39 +545,34 @@
                 <div class="team-slide">
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/profile.png">
+                            <img src="images/profile.png" alt="Emma Davis">
                         </div>
-                        <div class="member-name">Alex Smith</div>
-
+                        <div class="member-name">Emma Davis</div>
                         <div class="member-role">UX/UI Designer</div>
-                        <div class="member-bio">Creative designer focused on creating intuitive and engaging user
-                            experiences.</div>
+                        <div class="member-bio">Creative designer focused on creating intuitive and engaging user experiences.</div>
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/profile2.jpg">
+                            <img src="images/profile2.jpg" alt="David Wilson">
                         </div>
-                        <div class="member-name">Alex Smith</div>
-
+                        <div class="member-name">David Wilson</div>
                         <div class="member-role">Data Scientist</div>
-                        <div class="member-bio">AI and machine learning specialist with extensive experience in data
-                            analytics and insights.</div>
+                        <div class="member-bio">AI and machine learning specialist with extensive experience in data analytics and insights.</div>
                     </div>
                     <div class="team-member">
                         <div class="member-avatar">
-                            <img src="images/profile3.jpg">
+                            <img src="images/profile3.jpg" alt="Lisa Thompson">
                         </div>
                         <div class="member-name">Lisa Thompson</div>
                         <div class="member-role">Project Manager</div>
-                        <div class="member-bio">Agile project management expert ensuring successful delivery of complex
-                            technology projects.</div>
+                        <div class="member-bio">Agile project management expert ensuring successful delivery of complex technology projects.</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Navigation Arrows -->
-            <button class="nav-arrow prev" onclick="prevSlide()">‹</button>
-            <button class="nav-arrow next" onclick="nextSlide()">›</button>
+            <!-- Navigation Arrows - Fixed IDs -->
+            <button class="nav-arrow prev" id="teamPrevBtn">‹</button>
+            <button class="nav-arrow next" id="teamNextBtn">›</button>
         </div>
     </section>
 
@@ -1385,13 +1376,13 @@
                 heroCarouselInstance.resetAutoSlide();
             }
         }
-
-        // Team Carousel Class (Manual Navigation Only)
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        // Team Carousel Class (Fixed Version)
         class TeamCarousel {
             constructor() {
                 this.currentSlideTeam = 0;
                 this.totalSlidesTeam = 2;
-                this.slides = document.getElementById('teamSlides');
+                this.slides = document.getElementById('teamSlider');
                 this.prevBtn = document.getElementById('teamPrevBtn');
                 this.nextBtn = document.getElementById('teamNextBtn');
                 this.indicators = document.querySelectorAll('.team-carousel .indicator');
@@ -1477,7 +1468,8 @@
             }
 
             updateSlidePosition() {
-                const translateX = -this.currentSlideTeam * 50; // Each slide is 50% width
+                // Each slide is 50% width, so translate by currentSlide * 50%
+                const translateX = -this.currentSlideTeam * 50;
                 this.slides.style.transform = `translateX(${translateX}%)`;
 
                 // Update navigation buttons - enable both arrows for looping
@@ -1517,6 +1509,11 @@
                 this.updateSlidePosition();
             }
         }
+
+        // Initialize the carousel when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            const teamCarousel = new TeamCarousel();
+        });
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
