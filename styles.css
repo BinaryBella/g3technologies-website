@@ -1,3 +1,6 @@
+/*******************************************************************************
+ * GLOBAL STYLES
+ ******************************************************************************/
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +13,9 @@ body {
     color: #333;
 }
 
-/* Loading Spinner Styles */
+/*******************************************************************************
+ * LOADING SPINNER STYLES
+ ******************************************************************************/
 .loading-overlay {
     position: fixed;
     top: 0;
@@ -212,7 +217,9 @@ body {
     }
 }
 
-/* Navigation */
+/*******************************************************************************
+ * NAVIGATION STYLES
+ ******************************************************************************/
 .navbar {
     position: fixed;
     top: 0;
@@ -294,7 +301,9 @@ body {
     width: 100%;
 }
 
-/* Hero Section with Carousel */
+/*******************************************************************************
+ * HERO SECTION WITH CAROUSEL
+ ******************************************************************************/
 .hero {
     position: relative;
     height: 100vh;
@@ -363,6 +372,9 @@ body {
     flex-wrap: wrap;
 }
 
+/*******************************************************************************
+ * BUTTON STYLES
+ ******************************************************************************/
 .btn {
     padding: 12px 30px;
     border: none;
@@ -461,35 +473,23 @@ body {
     flex-wrap: wrap;
 }
 
-.btn {
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    border: 2px solid transparent;
-}
-
-.btn-primary {
+/* Button styles for specific contexts */
+.slide-content .btn-primary {
     background: linear-gradient(45deg, #ff6b6b, #ee5a52);
-    color: white;
 }
 
-.btn-primary:hover {
+.slide-content .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
 }
 
-.btn-secondary {
+.slide-content .btn-secondary {
     background: transparent;
     color: white;
     border: 2px solid white;
 }
 
-.btn-secondary:hover {
+.slide-content .btn-secondary:hover {
     background: white;
     color: #667eea;
     transform: translateY(-2px);
@@ -706,7 +706,9 @@ body {
     }
 }
 
-/* Header */
+/*******************************************************************************
+ * HEADER SECTION
+ ******************************************************************************/
 .header {
     background: #f9ae18;
     color: white;
@@ -744,7 +746,9 @@ body {
     z-index: 1;
 }
 
-/* Section Styling */
+/*******************************************************************************
+ * GENERIC SECTION STYLING
+ ******************************************************************************/
 .section {
     padding: 80px 0;
 }
@@ -767,8 +771,9 @@ body {
     margin-right: auto;
 }
 
-/* About Section ------------------------------------------------------------------------------------------------------------------------------*/
-/* Vision & Mission Section */
+/*******************************************************************************
+ * VISION & MISSION SECTION
+ ******************************************************************************/
 .vision-mission-section {
     padding: 80px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
@@ -1010,7 +1015,7 @@ body {
     }
 }
 
-/* Animation */
+/* Vision & Mission Animation Effects */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -1051,7 +1056,9 @@ body {
     animation: pulse 0.6s ease-in-out;
 }
 
-/* History Section Styles */
+/*******************************************************************************
+ * HISTORY SECTION STYLES
+ ******************************************************************************/
 .section-history {
     padding: 100px 0;
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
@@ -1540,7 +1547,9 @@ body {
     }
 }
 
-/* Team Section--------------------------------------------------------------------------------------------------------------------------*/
+/*******************************************************************************
+ * TEAM SECTION STYLES
+ ******************************************************************************/
 .team-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1769,6 +1778,7 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 20px;
+        width: 60%;
     }
 
     .team-member {
@@ -1831,7 +1841,9 @@ body {
     transform: translateX(0%);
 }
 
-/* Portfolio section styles */
+/*******************************************************************************
+ * PORTFOLIO SECTION STYLES
+ ******************************************************************************/
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -2131,8 +2143,10 @@ body {
         transform: translateY(0);
     }
 }
-}
-/* Testimonial Section Styles */
+
+/*******************************************************************************
+ * TESTIMONIAL SECTION STYLES
+ ******************************************************************************/
 .testimonial-slider {
     position: relative;
     max-width: 800px;
@@ -2249,8 +2263,9 @@ body {
     left: 100%;
 }
 
-/* Contact Section Styles */
-/* Contact Section Styles */
+/*******************************************************************************
+ * CONTACT SECTION STYLES
+ ******************************************************************************/
 .contact-section {
     padding: 80px 0;
     background-color: #f8f9fa;
@@ -2623,6 +2638,9 @@ body {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+/*******************************************************************************
+ * SOCIAL MEDIA STYLES
+ ******************************************************************************/
 /* Individual social media colors on hover */
 .social-link.facebook:hover::before {
     background: #1877f2;
@@ -2805,6 +2823,9 @@ body {
     }
 }
 
+/*******************************************************************************
+ * UTILITY COMPONENTS
+ ******************************************************************************/
 /* Back to Top Button */
 .back-to-top {
     position: fixed;
@@ -2896,7 +2917,9 @@ body {
     }
 }
 
-/* Mobile Navigation */
+/*******************************************************************************
+ * MOBILE NAVIGATION
+ ******************************************************************************/
 .mobile-menu-toggle {
     display: none;
     background: none;
@@ -2934,7 +2957,9 @@ body {
     }
 }
 
-/* mobile responsiveness */
+/*******************************************************************************
+ * MOBILE RESPONSIVENESS
+ ******************************************************************************/
 
 /* Mobile Navigation Drawer */
 .mobile-menu-toggle {
@@ -3134,7 +3159,9 @@ body.menu-open {
     width: 100%;
 }
 
-/* Timeline Responsive Styles */
+/*******************************************************************************
+ * TIMELINE RESPONSIVE STYLES
+ ******************************************************************************/
 /* By default, show desktop timeline and hide mobile timeline */
 .timeline-container {
     display: block;
@@ -3302,6 +3329,9 @@ body.menu-open {
     }
 }
 
+/*******************************************************************************
+ * FOOTER STYLES
+ ******************************************************************************/
 .footer-bottom {
     padding-top: 30px;
     text-align: center;
